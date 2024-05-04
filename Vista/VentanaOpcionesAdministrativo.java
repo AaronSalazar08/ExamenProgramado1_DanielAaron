@@ -26,6 +26,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setSize(600, 600);
+        setLocationRelativeTo(null);
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
         panelVentanaOpcionesAdministrativo.setBackground(new Color(119, 176, 178));
         panelVentanaOpcionesAdministrativo.setLayout(null);
@@ -37,7 +38,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         // BOTONES
         botonBuscar = new JButton("Buscar");
-        botonBuscar.setBounds(30, 50, 100, 100);
+        botonBuscar.setBounds(300, 50, 100, 30);
         botonBuscar.setForeground(new Color(27, 27, 30));
 
         /*
@@ -50,15 +51,15 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
 
         botonEliminar = new JButton("Eliminar");
-        botonEliminar.setBounds(130, 50, 100, 30);
+        botonEliminar.setBounds(450, 50, 100, 30);
         botonEliminar.setForeground(new Color(27, 27, 30));
 
         botonMostrar = new JButton("Mostrar");
-        botonMostrar.setBounds(230, 50, 100, 30);
+        botonMostrar.setBounds(270, 80, 100, 40);
         botonMostrar.setForeground(new Color(27, 27, 30));
 
         botonVolver = new JButton("Volver");
-        botonVolver.setBounds(40, 500, 150, 30);
+        botonVolver.setBounds(40, 500, 100, 40);
         botonVolver.setForeground(new Color(27, 27, 30));
         botonVolver.addActionListener(this);
 
