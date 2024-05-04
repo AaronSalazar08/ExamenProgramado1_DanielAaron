@@ -18,7 +18,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     private JTextArea AreaTextoPacientes;
     private JTextField CedulaSeleccionada_txt;
     private JLabel labelCedula;
-    private JScrollPane barraBar = new JScrollPane(AreaTextoPacientes);;
+    //private JScrollPane barraBar = new JScrollPane(AreaTextoPacientes);;
 
     public VentanaOpcionesAdministrativo() {
 
