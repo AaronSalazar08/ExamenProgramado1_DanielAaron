@@ -18,7 +18,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     private JTextArea AreaTextoPacientes;
     private JTextField CedulaSeleccionada_txt;
     private JLabel labelCedula;
-    //private JScrollPane barraBar = new JScrollPane(AreaTextoPacientes);;
+    // private JScrollPane barraBar = new JScrollPane(AreaTextoPacientes);;
 
     public VentanaOpcionesAdministrativo() {
 
@@ -39,13 +39,9 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     public void Elementos() {
 
         // BOTONES
-<<<<<<< HEAD
-        botonBuscar = new JButton("Buscar");
-        botonBuscar.setBounds(300, 50, 100, 30);
-=======
+
         botonBuscar = new JButton("Seleccionar");
         botonBuscar.setBounds(300, 50, 120, 30);
->>>>>>> 31b4c972fd4621cf1b4bae8123f01ce8abf2175b
         botonBuscar.setForeground(new Color(27, 27, 30));
 
         /*
@@ -61,13 +57,6 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         botonEliminar.setBounds(450, 50, 100, 30);
         botonEliminar.setForeground(new Color(27, 27, 30));
 
-<<<<<<< HEAD
-        botonMostrar = new JButton("Mostrar");
-        botonMostrar.setBounds(270, 80, 100, 40);
-        botonMostrar.setForeground(new Color(27, 27, 30));
-
-=======
->>>>>>> 31b4c972fd4621cf1b4bae8123f01ce8abf2175b
         botonVolver = new JButton("Volver");
         botonVolver.setBounds(40, 500, 100, 40);
         botonVolver.setForeground(new Color(27, 27, 30));
@@ -87,8 +76,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         AreaTextoPacientes.setBounds(50, 150, 500, 300);
         AreaTextoPacientes.setEditable(false);
 
-        //ScrollPane
-        
+        // ScrollPane
 
         // CAMPO DE TEXTO
         CedulaSeleccionada_txt = new JTextField();
@@ -103,7 +91,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         panelVentanaOpcionesAdministrativo.add(AreaTextoPacientes);
         panelVentanaOpcionesAdministrativo.add(CedulaSeleccionada_txt);
         panelVentanaOpcionesAdministrativo.add(labelCedula);
-     
+
     }
 
     @Override
@@ -128,7 +116,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     @Override
     public void adjustmentValueChanged(AdjustmentEvent e) {
-        
+
         throw new UnsupportedOperationException("Unimplemented method 'adjustmentValueChanged'");
     }
 
