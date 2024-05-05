@@ -82,6 +82,9 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
         } else if (e.getSource() == botonPaciente) {
             JOptionPane.showMessageDialog(null, "Interfaz Paciente seleccionada");
+            VentanaInformacionPaciente instanciaPaciente = new VentanaInformacionPaciente();
+            instanciaPaciente.setVisible(true);
+            this.dispose();
 
         }
 
