@@ -9,24 +9,51 @@ import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class VentanaOpcionesAdministrativo extends JFrame implements ActionListener, AdjustmentListener {
 
-    // Creacion de elementos para la ventana
+    // Creacion de elementos para la ventanas
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
-    private JButton botonBuscar, botonEliminar, botonVolver, botonCerrarPrograma;
-    private JTextArea AreaTextoPacientes;
+    private JButton botonEditar, botonEliminar, botonVolver, botonCerrarPrograma;
     private JTextField CedulaSeleccionada_txt;
     private JLabel labelCedula;
-    // private JScrollPane barraBar = new JScrollPane(AreaTextoPacientes);;
+    private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
+    private String[][] datos = {
+
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
+
+    };
+    DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 5) {
+
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+    JTable tabla = new JTable(modeloTabla);
+    JScrollPane scroll = new JScrollPane(tabla);
 
     public VentanaOpcionesAdministrativo() {
 
         // Ajustes para la ventana
         this.setTitle("Menú del Administrador");
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);// Cambiar a Do nothing on close
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setSize(600, 600);
+        this.setSize(800, 800);
         setLocationRelativeTo(null);
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
         panelVentanaOpcionesAdministrativo.setBackground(new Color(119, 176, 178));
@@ -39,10 +66,15 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     public void Elementos() {
 
         // BOTONES
+        botonEditar = new JButton("Editar Paciente");
+        botonEditar.setBounds(40, 120, 150, 20);
+        botonEditar.setForeground(new Color(27, 27, 30));
+        botonEditar.addActionListener(this);
 
-        botonBuscar = new JButton("Seleccionar");
-        botonBuscar.setBounds(300, 50, 120, 30);
-        botonBuscar.setForeground(new Color(27, 27, 30));
+        botonEliminar = new JButton("Eliminar Paciente");
+        botonEliminar.setBounds(200, 120, 150, 20);
+        botonEliminar.setForeground(new Color(27, 27, 30));
+        botonEliminar.addActionListener(this);
 
         /*
          * ImageIcon icono = new ImageIcon ("Vista/Imagenes/buscar.png");
@@ -53,44 +85,36 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
          * botonBuscar.setIcon(icono);
          */
 
-        botonEliminar = new JButton("Eliminar");
-        botonEliminar.setBounds(450, 50, 100, 30);
-        botonEliminar.setForeground(new Color(27, 27, 30));
-
         botonVolver = new JButton("Volver");
-        botonVolver.setBounds(40, 500, 100, 40);
+        botonVolver.setBounds(40, 700, 100, 20);
         botonVolver.setForeground(new Color(27, 27, 30));
         botonVolver.addActionListener(this);
 
         botonCerrarPrograma = new JButton("Salir del programa");
-        botonCerrarPrograma.setBounds(400, 500, 150, 30);
+        botonCerrarPrograma.setBounds(600, 700, 150, 20);
         botonCerrarPrograma.setForeground(new Color(27, 27, 30));
         botonCerrarPrograma.addActionListener(this);
 
         // LABEL (Mensaje)
-        labelCedula = new JLabel("Cedula: ");
-        labelCedula.setBounds(20, 20, 100, 30);
-
-        // TEXTO DE AREA
-        AreaTextoPacientes = new JTextArea();
-        AreaTextoPacientes.setBounds(50, 150, 500, 300);
-        AreaTextoPacientes.setEditable(false);
-
-        // ScrollPane
+        labelCedula = new JLabel("Digite la cédula del paciente a manipular: ");
+        labelCedula.setBounds(40, 50, 300, 30);
 
         // CAMPO DE TEXTO
         CedulaSeleccionada_txt = new JTextField();
         CedulaSeleccionada_txt.setEditable(true);
-        CedulaSeleccionada_txt.setBounds(30, 50, 200, 30);
+        CedulaSeleccionada_txt.setBounds(300, 55, 200, 20);
+
+        // JSCROLLPANE
+        scroll.setBounds(40, 180, 700, 500);
 
         // AGREGAR ELEMENTOS AL PANEL
-        panelVentanaOpcionesAdministrativo.add(botonBuscar);
-        panelVentanaOpcionesAdministrativo.add(botonEliminar);
+        panelVentanaOpcionesAdministrativo.add(botonEditar);
         panelVentanaOpcionesAdministrativo.add(botonVolver);
+        panelVentanaOpcionesAdministrativo.add(botonEliminar);
         panelVentanaOpcionesAdministrativo.add(botonCerrarPrograma);
-        panelVentanaOpcionesAdministrativo.add(AreaTextoPacientes);
         panelVentanaOpcionesAdministrativo.add(CedulaSeleccionada_txt);
         panelVentanaOpcionesAdministrativo.add(labelCedula);
+        panelVentanaOpcionesAdministrativo.add(scroll);
 
     }
 
@@ -107,6 +131,14 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         if (e.getSource() == botonCerrarPrograma) {
 
+            this.dispose();
+
+        }
+
+        if(e.getSource()== botonEditar){
+
+            EditarPaciente editarPaciente = new EditarPaciente();
+            editarPaciente.setVisible(true);
             this.dispose();
 
         }
