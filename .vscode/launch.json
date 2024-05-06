@@ -12,9 +12,9 @@
         },
         {
             "type": "java",
-            "name": "Persona",
+            "name": "Principal",
             "request": "launch",
-            "mainClass": "Modelo.Persona",
+            "mainClass": "Controlador.Principal",
             "projectName": "ExamenProgramado1_DanielAaron_6c673800"
         }
     ]
