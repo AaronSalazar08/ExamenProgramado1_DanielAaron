@@ -1,5 +1,3 @@
-package Modelo;
-
 public class Paciente {
 
     public String nombrePaciente;
@@ -7,11 +5,6 @@ public class Paciente {
     public String edad;
     public String transtorno;
 
-
-
-    
-    public Paciente() {
-    }
 
     public Paciente(String nombrePaciente, String cedulaPaciente, String edad, String transtorno) {
         this.nombrePaciente = nombrePaciente;
@@ -51,10 +44,5 @@ public class Paciente {
     public void setTranstorno(String transtorno) {
         this.transtorno = transtorno;
     }
-
-    
-
-
-
 
 }

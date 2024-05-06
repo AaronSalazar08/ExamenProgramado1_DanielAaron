@@ -2,9 +2,10 @@ package Controlador;
 
 import java.util.ArrayList;
 
-import Modelo.Paciente;
+
 import Vista.MenuPrimeraVista;
-import Vista.VentanaOpcionesAdministrativo;
+
+
 
 public class Principal {
 
