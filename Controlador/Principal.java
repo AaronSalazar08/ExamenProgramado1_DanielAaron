@@ -21,9 +21,6 @@ public class Principal {
        
     }
 
-    /*public String nombrePaciente;
-    public String cedulaPaciente;
-    public String edad;
-    public String transtorno; */
+    
 
 }
