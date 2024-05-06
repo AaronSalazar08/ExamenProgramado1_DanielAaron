@@ -9,7 +9,6 @@ import Vista.MenuPrimeraVista;
 
 public class Principal {
 
-public static ArrayList<Paciente> empleados = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -21,5 +20,10 @@ public static ArrayList<Paciente> empleados = new ArrayList<>();
 
        
     }
+
+    /*public String nombrePaciente;
+    public String cedulaPaciente;
+    public String edad;
+    public String transtorno; */
 
 }
