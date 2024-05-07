@@ -11,6 +11,9 @@ import java.awt.event.AdjustmentListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import Controlador.Principal;
+import Modelo.Paciente;
+
 public class VentanaOpcionesAdministrativo extends JFrame implements ActionListener, AdjustmentListener {
 
     // Creacion de elementos para la ventanas
@@ -19,24 +22,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     private JTextField CedulaSeleccionada_txt;
     private JLabel labelCedula;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
-    private String[][] datos = {
-
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-            { "Aaron", "111", "19", "Macho pecho peludo", "Depreson" },
-
-    };
+    
     DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 5) {
 
         @Override
@@ -115,6 +101,8 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         panelVentanaOpcionesAdministrativo.add(CedulaSeleccionada_txt);
         panelVentanaOpcionesAdministrativo.add(labelCedula);
         panelVentanaOpcionesAdministrativo.add(scroll);
+
+        
 
     }
 
