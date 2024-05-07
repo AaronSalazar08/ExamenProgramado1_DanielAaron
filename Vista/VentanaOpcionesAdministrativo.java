@@ -30,8 +30,8 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
             return false;
         }
     };
-    JTable tabla = new JTable(modeloTabla);
-    JScrollPane scroll = new JScrollPane(tabla);
+    JTable tablaPacientes = new JTable(modeloTabla);
+    JScrollPane scroll = new JScrollPane(tablaPacientes);
 
     public VentanaOpcionesAdministrativo() {
 
@@ -101,6 +101,16 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         panelVentanaOpcionesAdministrativo.add(CedulaSeleccionada_txt);
         panelVentanaOpcionesAdministrativo.add(labelCedula);
         panelVentanaOpcionesAdministrativo.add(scroll);
+
+        for(int contador = 0; contador<Principal.listaPacientes.size(); contador ++){
+
+                Paciente paciente = Principal.listaPacientes.get(contador);
+                tablaPacientes.setValueAt(paciente.getNombre(), contador, 0);
+                tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
+                tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
+                tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
+                tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+        }
 
         
 

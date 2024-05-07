@@ -83,7 +83,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         // Ciclo if en caso de que se seleccione la opcion "Administrativo"
         if (e.getSource() == botonAdministrativo) {
             JOptionPane.showMessageDialog(null, "Acción de inicio de sesión");
-            LoginAdmin inicioSesion =  new LoginAdmin ();
+            VentanaOpcionesAdministrativo inicioSesion =  new VentanaOpcionesAdministrativo ();
             inicioSesion.setVisible(true);
             this.dispose();
             

@@ -14,7 +14,7 @@ public class Metodos {
 
     public static void RegistrarAdministradores (String nombre, String contraseña){
 
-        Principal.administradores.add(new Administrador(nombre, contraseña));
+        Principal.listaAdmin.add(new Administrador(nombre, contraseña));
 
     }
 
