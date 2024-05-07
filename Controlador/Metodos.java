@@ -6,9 +6,9 @@ import Modelo.Paciente;
 public class Metodos {
 
 
-    public static void RegistrarPacientes (String nombre, String cedula, String transtorno, boolean sexo, int edad){
+    public static void RegistrarPacientes (String nombre, String cedula, String transtorno, String sexoMasculino, int edad){
 
-        Principal.listaPacientes.add(new Paciente(nombre, cedula, transtorno, sexo, edad));
+        Principal.listaPacientes.add(new Paciente(nombre, cedula, transtorno, sexoMasculino, edad));
 
     }
 

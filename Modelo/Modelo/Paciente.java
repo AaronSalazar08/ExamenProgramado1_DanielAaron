@@ -5,11 +5,11 @@ public class Paciente extends Persona {
     //DECLARACION DE ATRIBUTOS
     protected String cedula;
     protected String transtorno;
-    protected boolean sexo;
+    protected String sexo;
     protected int edad;
 
     //CREACION DEL CONSTRUCTOR
-    public Paciente(String nombre, String cedula, String transtorno, boolean sexo, int edad) {
+    public Paciente(String nombre, String cedula, String transtorno, String sexo, int edad) {
         super(nombre);
         this.cedula = cedula;
         this.transtorno = transtorno;
@@ -34,11 +34,11 @@ public class Paciente extends Persona {
         this.transtorno = transtorno;
     }
 
-    public boolean getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(boolean sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 

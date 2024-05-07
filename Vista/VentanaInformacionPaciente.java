@@ -174,17 +174,23 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                     edadPaciente = Integer.parseInt(entradaEdadPaciente);
 
                     if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
+                        
                         JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
                         return; 
                     }
 
                     if (botonMasculino.isSelected()) {
 
-                        JOptionPane.showMessageDialog(null, "opcion masculino");
+                       
+                        String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
 
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                                transtornoSeleccionado, masculinoSeleccionado, edadPaciente);
+                                transtornoSeleccionado, sexoMasculino, edadPaciente);
+
+
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
+
+
                         ResultadosPaciente resultados = new ResultadosPaciente();
                         resultados.setVisible(true);
                         this.dispose();
@@ -193,9 +199,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
                     else if (botonFemenino.isSelected()) {
 
+                        String sexoFemenino = botonMasculino.isSelected() ? "Femenino" : "Femenino";
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                                transtornoSeleccionado, femeninoSeleccionado, edadPaciente);
-                        JOptionPane.showMessageDialog(null, "opcion femenino");
+                                transtornoSeleccionado, sexoFemenino, edadPaciente);
+                       
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
 
                         ResultadosPaciente resultados = new ResultadosPaciente();
