@@ -8,7 +8,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.util.ArrayList;
 
-
 import Controlador.Principal;
 import Modelo.Administrador;
 
@@ -17,24 +16,20 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.Font;
 
-
-public class RegistroAdmin  extends JFrame implements ActionListener{
-
+public class RegistroAdmin extends JFrame implements ActionListener {
 
     JPanel panelRegistro = new JPanel();
 
-    JLabel RegistroLabel ;
+    JLabel RegistroLabel;
     JLabel labelAdmin;
     JLabel labelContraseña;
 
-    JButton botonRegistrar ;
+    JButton botonRegistrar;
     JButton botonSalir;
     JTextField nombreAdmin;
     JTextField areaContraseña;
 
-
-
-    public RegistroAdmin (){
+    public RegistroAdmin() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setSize(400, 400);
@@ -43,17 +38,15 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
         setLocationRelativeTo(null);
         panelRegistro.setLayout(null);
 
-
-        Elementos ();
-
+        Elementos();
 
     }
 
-    public void Elementos (){
+    public void Elementos() {
 
-        //Añadir constantes
+        // Añadir constantes
 
-        //JLabel
+        // JLabel
 
         RegistroLabel = new JLabel("Registro de administrador");
         RegistroLabel.setBounds(5, 1, 400, 70);
@@ -63,7 +56,7 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
 
         labelAdmin = new JLabel("Ingrese el nombre de la persona encargada");
         labelAdmin.setBounds(46, 50, 400, 60);
-        Font fuente2= new Font("Century Schoolbook", Font.PLAIN, 14); //
+        Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 14); //
         labelAdmin.setFont(fuente2);
         labelAdmin.setForeground(new Color(81, 33, 176));
 
@@ -73,36 +66,23 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
         labelContraseña.setFont(fuente3);
         labelContraseña.setForeground(new Color(81, 33, 176));
 
-        //JTexField
-
+        // JTexField
 
         nombreAdmin = new JTextField();
-        nombreAdmin.setBounds(60,100,250,20);
+        nombreAdmin.setBounds(60, 100, 250, 20);
 
         areaContraseña = new JTextField();
-        areaContraseña.setBounds(60,200,250,20);
+        areaContraseña.setBounds(60, 200, 250, 20);
 
-        //JButton
+        // JButton
 
         botonRegistrar = new JButton("Registrar");
-        botonRegistrar.setBounds(270,300,100,30);
+        botonRegistrar.setBounds(270, 300, 100, 30);
         botonRegistrar.addActionListener(this);
 
         botonSalir = new JButton("Cerrar Prog.");
-        botonSalir.setBounds(20,300,110,30);
+        botonSalir.setBounds(20, 300, 110, 30);
         botonSalir.addActionListener(this);
-
-
-
-
-
-
-
-
-
-       
-
-
 
         panelRegistro.add(RegistroLabel);
         panelRegistro.add(labelAdmin);
@@ -111,53 +91,30 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
         panelRegistro.add(labelContraseña);
         panelRegistro.add(botonRegistrar);
         panelRegistro.add(botonSalir);
-        
-
 
     }
 
+    public void actionPerformed(ActionEvent e) {
 
+        String entrada_texto1 = nombreAdmin.getText().trim();
+        String entrada_texto2 = areaContraseña.getText().trim();
 
+        if (e.getSource() == botonSalir) {
+            JOptionPane.showMessageDialog(null, "Cerrando Sistema");
+            this.dispose();
 
+        } else if (entrada_texto1.isEmpty() || entrada_texto2.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Verifique que los campos a rellenar no estén vacíos");
 
-public void actionPerformed(ActionEvent e) {
-    
-    String entrada_texto1 = nombreAdmin.getText().trim();
-    String entrada_texto2 = areaContraseña.getText().trim();
-    
+        } else if (e.getSource() == botonRegistrar) {
+            Controlador.Metodos.RegistrarAdministradores(entrada_texto1, entrada_texto2);
+            JOptionPane.showMessageDialog(null, "Admistrador Registrado  \n Cargando Menú Principal");
+            MenuPrimeraVista menu = new MenuPrimeraVista();
+            menu.setVisible(true);
+            this.dispose();
 
+        }
 
-if (e.getSource() == botonSalir) {
-    JOptionPane.showMessageDialog(null, "Cerrando Sistema");
-    this.dispose();
+    }
 
-    }else if ( entrada_texto1.isEmpty() || entrada_texto2.isEmpty()){
-        JOptionPane.showMessageDialog(this, "Verifique que los campos a rellenar no estén vacíos");
-
-    
-} else if (e.getSource() == botonRegistrar) {
-    JOptionPane.showMessageDialog(null, "Admistrador Registrado  \n Cargando Menú Principal");
-   MenuPrimeraVista menu = new MenuPrimeraVista();
-    menu.setVisible(true);
-    this.dispose();
-
-}
-
-}
-
-public void guardarElemento (){
-
-    String Administrador;
-    String Contraseña;
-
-
-    Administrador = nombreAdmin.getText().trim();
-    Contraseña = areaContraseña.getText().trim();
-
-    Principal.listaAdmin.add( new Administrador(Administrador, Contraseña));
-
-
-}
-
-    
 }

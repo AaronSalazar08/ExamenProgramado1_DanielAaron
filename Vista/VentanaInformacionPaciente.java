@@ -19,11 +19,11 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
     public JPanel panelInfoPaciente = new JPanel();
     public JButton botonRegistrar, botonCancelar;
     public JLabel labelNombrePaciente, labelCedula, labelEdad, labelTranstorno, labelSexo, labelTitulo;
-    public JTextField nombrePacienteTxt;
-    public JTextField cedulaPacienteTxt;
-    public JTextField EdadPacienteTxt;
-    public JComboBox comboTranstorno;
-    public JRadioButton botonMasculino, botonFemenino;
+    public static JTextField nombrePacienteTxt;
+    public static JTextField cedulaPacienteTxt;
+    public static JTextField EdadPacienteTxt;
+    public static JComboBox comboTranstorno;
+    public static JRadioButton botonMasculino, botonFemenino;
 
     public VentanaInformacionPaciente() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -87,13 +87,13 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         // JTexfield
 
-        nombrePacienteTxt = new JTextField();
+        nombrePacienteTxt = new JTextField(" ");
         nombrePacienteTxt.setBounds(40, 100, 200, 30);
 
-        cedulaPacienteTxt = new JTextField();
+        cedulaPacienteTxt = new JTextField(" ");
         cedulaPacienteTxt.setBounds(40, 210, 200, 30);
 
-        EdadPacienteTxt = new JTextField();
+        EdadPacienteTxt = new JTextField(" ");
         EdadPacienteTxt.setBounds(40, 320, 200, 30);
 
         // JComboBox

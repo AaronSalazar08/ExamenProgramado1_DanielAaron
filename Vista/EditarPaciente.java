@@ -20,8 +20,11 @@ public class EditarPaciente extends JFrame implements ActionListener, MouseListe
 
     private JPanel panelEditarPaciente = new JPanel();
     private JButton guardar_btn, volver_btn;
-    private JTextField nombrePaciente_txt, cedulaPaciente_txt,
-            edadPaciete_txt, sexoPaciente_txt, transtornoPaciente_txt;
+    public static JTextField nombrePaciente_txt;
+    public static JTextField cedulaPaciente_txt;
+    public static JTextField edadPaciete_txt;
+    public static JTextField sexoPaciente_txt;
+    public static JTextField transtornoPaciente_txt;
     private JLabel nombrePaciente_lb, cedulaPaciente_lb, edadPaciente_lb,
             sexoPaciente_lb, transtornoPaciente_lb;
     Font fuente = new Font("Century Schoolbook", Font.PLAIN, 14);
@@ -61,19 +64,19 @@ public class EditarPaciente extends JFrame implements ActionListener, MouseListe
         transtornoPaciente_lb.setBounds(30, 300, 200, 30);
 
         // JTEXTFIELD
-        nombrePaciente_txt = new JTextField();
+        nombrePaciente_txt = new JTextField(" ");
         nombrePaciente_txt.setBounds(120, 60, 200, 30);
 
-        cedulaPaciente_txt = new JTextField();
+        cedulaPaciente_txt = new JTextField(" ");
         cedulaPaciente_txt.setBounds(120, 120, 200, 30);
 
-        edadPaciete_txt = new JTextField();
+        edadPaciete_txt = new JTextField(" ");
         edadPaciete_txt.setBounds(120, 180, 200, 30);
 
-        sexoPaciente_txt = new JTextField();
+        sexoPaciente_txt = new JTextField(" ");
         sexoPaciente_txt.setBounds(120, 240, 200, 30);
 
-        transtornoPaciente_txt = new JTextField();
+        transtornoPaciente_txt = new JTextField(" ");
         transtornoPaciente_txt.setBounds(120, 300, 200, 30);
 
         // JBUTTON

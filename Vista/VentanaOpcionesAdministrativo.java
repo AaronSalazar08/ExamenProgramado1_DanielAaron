@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 import Controlador.Principal;
 import Modelo.Paciente;
 
-public class VentanaOpcionesAdministrativo extends JFrame implements ActionListener, AdjustmentListener {
+public class VentanaOpcionesAdministrativo extends JFrame implements ActionListener {
 
     // Creacion de elementos para la ventanas
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
@@ -22,7 +22,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     private JTextField CedulaSeleccionada_txt;
     private JLabel labelCedula;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
-    
+
     DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 5) {
 
         @Override
@@ -102,17 +102,15 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         panelVentanaOpcionesAdministrativo.add(labelCedula);
         panelVentanaOpcionesAdministrativo.add(scroll);
 
-        for(int contador = 0; contador<Principal.listaPacientes.size(); contador ++){
+        for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
 
-                Paciente paciente = Principal.listaPacientes.get(contador);
-                tablaPacientes.setValueAt(paciente.getNombre(), contador, 0);
-                tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
-                tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
-                tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
-                tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+            Paciente paciente = Principal.listaPacientes.get(contador);
+            tablaPacientes.setValueAt(paciente.getNombre(), contador, 0);
+            tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
+            tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
+            tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
+            tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
         }
-
-        
 
     }
 
@@ -133,21 +131,49 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         }
 
-        if(e.getSource()== botonEditar){
+        if (e.getSource() == botonEditar) {
 
-            EditarPaciente editarPaciente = new EditarPaciente();
-            editarPaciente.setVisible(true);
-            this.dispose();
+            boolean pacienteEncontrado = false;
+            String busqueda = CedulaSeleccionada_txt.getText();
+
+            try {
+
+                if (Principal.listaPacientes != null) {
+                    for (Paciente encontrado : Principal.listaPacientes) {
+                        String edad = String.valueOf(encontrado.getEdad());
+                        if (encontrado.getCedula().equals(busqueda)) {
+                            pacienteEncontrado = true;
+
+                            EditarPaciente.nombrePaciente_txt.setText(encontrado.getNombre());
+                            EditarPaciente.cedulaPaciente_txt.setText(encontrado.getCedula());
+                            EditarPaciente.edadPaciete_txt.setText(edad);
+                            // VentanaInformacionPaciente.nombrePacienteTxt.setText(encontrado.getTranstorno());
+                            // VentanaInformacionPaciente.nombrePacienteTxt.setText(edad);
+                            EditarPaciente editarPaciente = new EditarPaciente();
+                            editarPaciente.setVisible(true);
+                            this.dispose();
+                            break;
+
+                        }
+
+                    }
+
+                    if (!pacienteEncontrado) {
+
+                        JOptionPane.showMessageDialog(null, "Paciente no encontrado");
+                    }
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "La lista  de pacientes esta vacia...");
+                }
+
+            } catch (NullPointerException ex) {
+
+                JOptionPane.showMessageDialog(null, "ERROR");
+            }
 
         }
 
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
-    }
-
-    @Override
-    public void adjustmentValueChanged(AdjustmentEvent e) {
-
-        throw new UnsupportedOperationException("Unimplemented method 'adjustmentValueChanged'");
     }
 
 }
