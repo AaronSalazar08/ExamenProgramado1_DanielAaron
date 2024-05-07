@@ -135,7 +135,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         panelInfoPaciente.add(botonMasculino);
         panelInfoPaciente.add(botonFemenino);
-        panelInfoPaciente.add(grupoBotones);
+        //panelInfoPaciente.add(grupoBotones);
 
     }
 
