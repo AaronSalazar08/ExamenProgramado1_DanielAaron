@@ -14,7 +14,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
     public JPanel panelPrimeraVista = new JPanel();
     public JButton botonAdministrativo, botonPaciente;
-    public JLabel fraseLabel, indicacionesLabel, tituloLabel;
+    public JLabel fraseLabel, indicacionesLabel, tituloLabel, labelDescripcion ;
 
     public MenuPrimeraVista() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -38,8 +38,15 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         tituloLabel.setFont(fuente1);
         tituloLabel.setForeground(new Color(81, 33, 176));
 
+        labelDescripcion = new JLabel("Centro de apoyo para niños con transtornos mentales en Costa Rica");
+        labelDescripcion.setBounds(130, 70, 590, 70);
+        Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 18); //
+        labelDescripcion.setFont(fuente4);
+        labelDescripcion.setForeground(new Color(81, 33, 176));
+
+
         fraseLabel = new JLabel("El ayudar es don que todos tenemos");
-        fraseLabel.setBounds(250, 70, 600, 70);
+        fraseLabel.setBounds(250, 120, 600, 70);
         Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 18); //
         fraseLabel.setFont(fuente2);
         fraseLabel.setForeground(new Color(81, 33, 176));
@@ -67,6 +74,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         panelPrimeraVista.add(indicacionesLabel);
         panelPrimeraVista.add(botonAdministrativo);
         panelPrimeraVista.add(botonPaciente);
+        panelPrimeraVista.add(labelDescripcion);
 
     }
 

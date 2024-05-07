@@ -20,7 +20,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
     public JPanel panelInfoPaciente = new JPanel();
     public JButton botonRegistrar, botonCancelar;
-    public JLabel labelNombrePaciente, labelCedula, labelEdad, labelTranstorno, labelSexo, labelTitulo ;
+    public JLabel labelNombrePaciente, labelCedula, labelEdad, labelTranstorno, labelSexo, labelTitulo;
     public JTextField nombrePacienteTxt;
     public JTextField cedulaPacienteTxt;
     public JTextField EdadPacienteTxt;
@@ -67,6 +67,8 @@ Elementos ();
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 16); 
         labelNombrePaciente.setFont(fuente1);
         labelNombrePaciente.setForeground(new Color(81, 33, 176));
+
+        
 
         labelCedula = new JLabel("Introduzca la cédula del paciente");
         labelCedula.setBounds(20, 150, 400, 70);
@@ -165,9 +167,10 @@ botonFemenino.setBounds(520,130,95,35);
 
 public void actionPerformed(ActionEvent e) {
 
-    String entrada_texto = nombrePacienteTxt.getText().trim();
-		String entrada_texto1 = cedulaPacienteTxt.getText().trim();
+    String entrada_texto1 = nombrePacienteTxt.getText().trim();
+		String entrada_texto2 = cedulaPacienteTxt.getText().trim();
 		String entrada_texto3 = EdadPacienteTxt.getText().trim();
+        
 		
 
 
@@ -179,20 +182,17 @@ if (e.getSource() == botonCancelar) {
 
     
 
+    
+
 
 } else if (e.getSource() == botonRegistrar) {
-
-
-
-
-    
     JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
    ResultadosPaciente resultados = new ResultadosPaciente();
     resultados.setVisible(true);
     this.dispose();
 
-}
 
+}
 
 }
 

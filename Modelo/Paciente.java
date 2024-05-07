@@ -1,47 +1,24 @@
 package Modelo;
 
-public class Paciente {
+public class Paciente extends Persona {
 
-    public String nombrePaciente;
-    public String cedulaPaciente;
-    public String edad;
-    public String transtorno;
-
-
-
+    String numSeguro;
+    String transtorno; 
+    String sexo;
     
-    public Paciente() {
+    public Paciente (){
+
+        
+
+
     }
 
-    public Paciente(String nombrePaciente, String cedulaPaciente, String edad, String transtorno) {
-        this.nombrePaciente = nombrePaciente;
-        this.cedulaPaciente = cedulaPaciente;
-        this.edad = edad;
-        this.transtorno = transtorno;
+    public String getNumSeguro() {
+        return numSeguro;
     }
 
-    public String getNombrePaciente() {
-        return nombrePaciente;
-    }
-
-    public void setNombrePaciente(String nombrePaciente) {
-        this.nombrePaciente = nombrePaciente;
-    }
-
-    public String getCedulaPaciente() {
-        return cedulaPaciente;
-    }
-
-    public void setCedulaPaciente(String cedulaPaciente) {
-        this.cedulaPaciente = cedulaPaciente;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
+    public void setNumSeguro(String numSeguro) {
+        this.numSeguro = numSeguro;
     }
 
     public String getTranstorno() {
@@ -52,6 +29,13 @@ public class Paciente {
         this.transtorno = transtorno;
     }
 
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
     
 
 
