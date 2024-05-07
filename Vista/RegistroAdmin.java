@@ -6,6 +6,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.util.ArrayList;
+
+
+import Controlador.Principal;
+import Modelo.Administrador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -116,18 +121,20 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
 
 
 public void actionPerformed(ActionEvent e) {
-		
+    
+    String entrada_texto1 = nombreAdmin.getText().trim();
+    String entrada_texto2 = areaContraseña.getText().trim();
+    
 
 
 if (e.getSource() == botonSalir) {
     JOptionPane.showMessageDialog(null, "Cerrando Sistema");
     this.dispose();
 
-    
+    }else if ( entrada_texto1.isEmpty() || entrada_texto2.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Verifique que los campos a rellenar no estén vacíos");
 
     
-
-
 } else if (e.getSource() == botonRegistrar) {
     JOptionPane.showMessageDialog(null, "Admistrador Registrado  \n Cargando Menú Principal");
    MenuPrimeraVista menu = new MenuPrimeraVista();
@@ -138,7 +145,19 @@ if (e.getSource() == botonSalir) {
 
 }
 
+public void guardarElemento (){
 
+    String Administrador;
+    String Contraseña;
+
+
+    Administrador = nombreAdmin.getText().trim();
+    Contraseña = areaContraseña.getText().trim();
+
+    Principal.listaAdmin.add( new Administrador(Administrador, Contraseña));
+
+
+}
 
     
 }

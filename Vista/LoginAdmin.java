@@ -2,6 +2,10 @@ package Vista;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Controlador.Principal;
+import Modelo.Administrador;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,20 +16,19 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginAdmin extends JFrame implements ActionListener{
-    
+public class LoginAdmin extends JFrame implements ActionListener {
 
-JPanel panelLogin = new JPanel();
-JLabel RegistroLabel ;
+    JPanel panelLogin = new JPanel();
+    JLabel RegistroLabel;
     JLabel labelAdmin;
     JLabel labelContraseña;
 
-    JButton botonIniciar ;
+    JButton botonIniciar;
     JButton botonAtras;
     JTextField nombreAdmin;
     JTextField areaContraseña;
 
-    public LoginAdmin (){
+    public LoginAdmin() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setSize(400, 400);
@@ -34,10 +37,8 @@ JLabel RegistroLabel ;
         setLocationRelativeTo(null);
         panelLogin.setLayout(null);
 
+        Elementos();
 
-        Elementos ();
-
-        
     }
 
    public void  Elementos () {
@@ -77,6 +78,7 @@ JLabel RegistroLabel ;
         botonIniciar = new JButton("Aceptar");
         botonIniciar.setBounds(270,300,100,30);
         botonIniciar.addActionListener(this);
+        
 
         botonAtras = new JButton("Atrás");
         botonAtras.setBounds(20,300,110,30);
@@ -95,28 +97,40 @@ JLabel RegistroLabel ;
 
 
     }
+
     public void actionPerformed(ActionEvent e) {
-		
+        String busquedaNombre = nombreAdmin.getText();
+        String busquedaContraseña = areaContraseña.getText();
+
+        if (e.getSource() == botonAtras) {
+            JOptionPane.showMessageDialog(null, "¡Inicio de Sesión cancelado!");
+            MenuPrimeraVista menu = new MenuPrimeraVista();
+            menu.setVisible(true);
+            this.dispose();
+
+        
+
+                }  if (e.getSource() == botonIniciar) {
+                    String busqueda = nombreAdmin.getText();
+
+		for (Administrador buscado : Principal.listaAdmin) {
+
+			if (buscado.getNombre().equals(busqueda)) {
 
 
-if (e.getSource() == botonAtras) {
-    JOptionPane.showMessageDialog(null, "¡Inicio de Sesión cancelado!");
-    MenuPrimeraVista menu = new MenuPrimeraVista();
-    menu.setVisible(true);
-    this.dispose();
 
-    
+				JOptionPane.showMessageDialog(null, "Empleado encontrado");
+				
+			} 
+			
+			else {
 
-    
-
-
-} else if (e.getSource() == botonIniciar) {
-    JOptionPane.showMessageDialog(null, "¡Inicio de sesión exitosa!");
-    VentanaOpcionesAdministrativo menuAdmin = new VentanaOpcionesAdministrativo();
-    menuAdmin.setVisible(true);
-    this.dispose();
-
-
-}
+				JOptionPane.showMessageDialog(null, "Empleado no encotrado");
+            }
+        }
+                    
+        }
     }
-}
+
+    
+        }
