@@ -18,13 +18,11 @@ public class Principal {
     public static void main(String[] args) {
 
 
-        MenuPrimeraVista puenteRegistro = new MenuPrimeraVista();
+        RegistroAdmin puenteRegistro = new RegistroAdmin();
         puenteRegistro.setVisible(true);
         
         
-
-        MenuPrimeraVista instancia = new MenuPrimeraVista();
-        instancia.setVisible(true);
+        
 
 
     }

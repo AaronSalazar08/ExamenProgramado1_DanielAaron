@@ -22,7 +22,7 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
     JLabel labelAdmin;
     JLabel labelContraseña;
 
-    JButton botonAceptar ;
+    JButton botonRegistrar ;
     JButton botonSalir;
     JTextField nombreAdmin;
     JTextField areaContraseña;
@@ -46,6 +46,10 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
 
     public void Elementos (){
 
+        //Añadir constantes
+
+        //JLabel
+
         RegistroLabel = new JLabel("Registro de administrador");
         RegistroLabel.setBounds(5, 1, 400, 70);
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 16); //
@@ -53,30 +57,55 @@ public class RegistroAdmin  extends JFrame implements ActionListener{
         RegistroLabel.setForeground(new Color(81, 33, 176));
 
         labelAdmin = new JLabel("Ingrese el nombre de la persona encargada");
-        labelAdmin.setBounds(5, 50, 400, 60);
+        labelAdmin.setBounds(46, 50, 400, 60);
         Font fuente2= new Font("Century Schoolbook", Font.PLAIN, 14); //
         labelAdmin.setFont(fuente2);
         labelAdmin.setForeground(new Color(81, 33, 176));
 
+        labelContraseña = new JLabel("Ingrese la contraseña a utilizar");
+        labelContraseña.setBounds(80, 150, 400, 60);
+        Font fuente3 = new Font("Century Schoolbook", Font.PLAIN, 14); //
+        labelContraseña.setFont(fuente3);
+        labelContraseña.setForeground(new Color(81, 33, 176));
+
+        //JTexField
+
+
         nombreAdmin = new JTextField();
-        nombreAdmin.setBounds(5,50,100,40);
+        nombreAdmin.setBounds(60,100,250,20);
+
+        areaContraseña = new JTextField();
+        areaContraseña.setBounds(60,200,250,20);
+
+        //JButton
+
+        botonRegistrar = new JButton("Registrar");
+        botonRegistrar.setBounds(270,300,100,30);
+        botonRegistrar.addActionListener(this);
+
+        botonSalir = new JButton("Cerrar Prog.");
+        botonSalir.setBounds(20,300,110,30);
+        botonSalir.addActionListener(this);
+
+
+
+
+
+
+
 
 
        
 
 
 
-
-
-
-
-
-
-
-
         panelRegistro.add(RegistroLabel);
         panelRegistro.add(labelAdmin);
         panelRegistro.add(nombreAdmin);
+        panelRegistro.add(areaContraseña);
+        panelRegistro.add(labelContraseña);
+        panelRegistro.add(botonRegistrar);
+        panelRegistro.add(botonSalir);
         
 
 
@@ -91,9 +120,7 @@ public void actionPerformed(ActionEvent e) {
 
 
 if (e.getSource() == botonSalir) {
-    JOptionPane.showMessageDialog(null, "Regresando al menú principal");
-   MenuPrimeraVista instanciaInicio =  new MenuPrimeraVista();
-    instanciaInicio.setVisible(true);
+    JOptionPane.showMessageDialog(null, "Cerrando Sistema");
     this.dispose();
 
     
@@ -101,20 +128,15 @@ if (e.getSource() == botonSalir) {
     
 
 
-} else if (e.getSource() == botonAceptar) {
-    JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
-   ResultadosPaciente resultados = new ResultadosPaciente();
-    resultados.setVisible(true);
+} else if (e.getSource() == botonRegistrar) {
+    JOptionPane.showMessageDialog(null, "Admistrador Registrado  \n Cargando Menú Principal");
+   MenuPrimeraVista menu = new MenuPrimeraVista();
+    menu.setVisible(true);
     this.dispose();
 
-
 }
 
 }
-
-
-
-
 
 
 
