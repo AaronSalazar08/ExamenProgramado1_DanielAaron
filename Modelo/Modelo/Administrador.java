@@ -1,5 +1,8 @@
 package Modelo;
 
+
+
+
 public class Administrador extends Persona {
 
     private  String contraseña;
