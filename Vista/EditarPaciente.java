@@ -95,7 +95,7 @@ public class EditarPaciente extends JFrame implements ActionListener, MouseListe
         ImageIcon iconoVolverAjustada = new ImageIcon(imagenVolverAjustada);
         volver_btn.setIcon(iconoVolverAjustada);
 
-        // AGREGAR ELEMENTOS AL PANEL #68A9AB / #6DABAD
+        // AGREGAR ELEMENTOS AL PANEL 
         panelEditarPaciente.add(nombrePaciente_lb);
         panelEditarPaciente.add(cedulaPaciente_lb);
         panelEditarPaciente.add(edadPaciente_lb);

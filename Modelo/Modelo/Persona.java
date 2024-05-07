@@ -1,50 +1,25 @@
 package Modelo;
 
 public class Persona {
-    
-    public String nombre; 
-    public String cedula;
 
-    
+    //DECLARACION DE ATRIBUTOS
+    protected String nombre;
+   
 
-    
-    public Persona() {
-    }
-
-
-    public Persona(String nombre, String cedula) {
+    //CREACION DEL CONSTRUCTOR
+    public Persona(String nombre) {
         this.nombre = nombre;
-        this.cedula = cedula;
+        
     }
 
-
-
+    //CREACION DE METODOS GET Y SET
     public String getNombre() {
         return nombre;
     }
-
-
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-
-
-    public String getCedula() {
-        return cedula;
-    }
-
-
-
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-
-
-
-
-
-
+   
 }
