@@ -40,7 +40,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         this.setSize(800, 600);
         setLocationRelativeTo(null);
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
-        panelVentanaOpcionesAdministrativo.setBackground(new Color(31, 209, 185));
+        panelVentanaOpcionesAdministrativo.setBackground(new Color(209, 242, 235));
         panelVentanaOpcionesAdministrativo.setLayout(null);
         Elementos();// llamada al metodo de elementos para agregar los elementos del panel a la
                     // interfaz grafica
@@ -52,12 +52,12 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         // JButton
         botonEliminar = new JButton();
         botonEliminar.setBounds(700, 450, 50, 50);
-        botonEliminar.setForeground(new Color(27, 27, 30));
+        botonEliminar.setForeground(new Color(209, 242, 235));
         botonEliminar.addActionListener(this);
         botonEliminar.setOpaque(false);
         botonEliminar.setContentAreaFilled(false);
         botonEliminar.setBorderPainted(false);
-        ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/Eliminar1.png");
+        ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/Eliminar2.png");
         if (iconoEliminar != null && iconoEliminar.getImage() != null) {
             Image imagenEliminarAjustada = iconoEliminar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
             botonEliminar.setIcon(new ImageIcon(imagenEliminarAjustada));
@@ -65,12 +65,12 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         botonVolver = new JButton();
         botonVolver.setBounds(40, 500, 65, 30);
-        botonVolver.setBackground(new Color(119, 176, 178));
+        botonVolver.setBackground(new Color(209, 242, 235));
         botonVolver.addActionListener(this);
         botonVolver.setOpaque(false);
         botonVolver.setContentAreaFilled(false);
         botonVolver.setBorderPainted(false);
-        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver3.png");
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
@@ -78,12 +78,12 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         botonEditar = new JButton();
         botonEditar.setBounds(600, 450, 50, 50);
-        botonEditar.setForeground(new Color(27, 27, 30));
+        botonEditar.setForeground(new Color(209, 242, 235));
         botonEditar.addActionListener(this);
         botonEditar.setOpaque(false);
         botonEditar.setContentAreaFilled(false);
         botonEditar.setBorderPainted(false);
-        ImageIcon iconoEditar = new ImageIcon("Vista/Imagenes/Editar.png");
+        ImageIcon iconoEditar = new ImageIcon("Vista/Imagenes/Editar1.png");
         if (iconoEditar != null && iconoEditar.getImage() != null) {
             Image imagenEditarAjustada = iconoEditar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
             botonEditar.setIcon(new ImageIcon(imagenEditarAjustada));

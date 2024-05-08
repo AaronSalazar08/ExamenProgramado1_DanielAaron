@@ -32,7 +32,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         this.setLocationRelativeTo(null);
         this.setSize(500, 600);
         this.setContentPane(panelInfoPaciente);
-        panelInfoPaciente.setBackground(new Color(31, 209, 185));
+        panelInfoPaciente.setBackground(new Color(209, 242, 235));
         setLocationRelativeTo(null);
         panelInfoPaciente.setLayout(null);
 
@@ -73,36 +73,34 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         labelNombrePaciente.setBounds(20, 115, 350, 50);
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelNombrePaciente.setFont(fuente1);
-        labelNombrePaciente.setForeground(new Color(81, 33, 176));
-        labelNombrePaciente.setForeground(new Color(81, 33, 176));
+        labelNombrePaciente.setForeground(new Color(23, 32, 42));
+        
 
         labelCedula = new JLabel("Cédula:");
         labelCedula.setBounds(20, 40, 400, 70);
         Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelCedula.setFont(fuente2);
-        labelCedula.setForeground(new Color(81, 33, 176));
-        labelCedula.setForeground(new Color(81, 33, 176));
+        labelCedula.setForeground(new Color(23, 32, 42));
+        
 
         labelEdad = new JLabel("Edad:");
         labelEdad.setBounds(20, 170, 400, 70);
         Font fuente3 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelEdad.setFont(fuente3);
-        labelEdad.setForeground(new Color(81, 33, 176));
-        labelEdad.setForeground(new Color(81, 33, 176));
+        labelEdad.setForeground(new Color(23, 32, 42));
+        
 
-        labelTranstorno = new JLabel("tipo de transtorno:");
+        labelTranstorno = new JLabel("Tipo de transtorno:");
         labelTranstorno.setBounds(20, 310, 400, 70);
         Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelTranstorno.setFont(fuente4);
-        labelTranstorno.setForeground(new Color(81, 33, 176));
-        labelTranstorno.setForeground(new Color(81, 33, 176));
+        labelTranstorno.setForeground(new Color(23, 32, 42));
 
         labelSexo = new JLabel("Sexo:");
         labelSexo.setBounds(20, 240, 400, 70);
         Font fuente5 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelSexo.setFont(fuente5);
-        labelSexo.setForeground(new Color(81, 33, 176));
-        labelSexo.setForeground(new Color(81, 33, 176));
+        labelSexo.setForeground(new Color(23, 32, 42));
 
         // JTexfield
 

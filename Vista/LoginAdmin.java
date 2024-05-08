@@ -43,7 +43,7 @@ public class LoginAdmin extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setSize(300, 300);
         this.setContentPane(panelRegistro);
-        panelRegistro.setBackground(new Color(31, 209, 185));
+        panelRegistro.setBackground(new Color(209, 242, 235));
         setLocationRelativeTo(null);
         panelRegistro.setLayout(null);
 
@@ -80,7 +80,7 @@ public class LoginAdmin extends JFrame implements ActionListener {
         botonRegistrar = new JButton("Continuar");
         botonRegistrar.setBounds(95, 180, 100, 30);
         botonRegistrar.addActionListener(this);
-        botonRegistrar.setBackground(new Color(31, 209, 185));
+        botonRegistrar.setBackground(new Color(209, 242, 235));
         botonRegistrar.setFont(fuenteBoton);
         botonRegistrar.setOpaque(false);
         botonRegistrar.setContentAreaFilled(false);
@@ -89,12 +89,12 @@ public class LoginAdmin extends JFrame implements ActionListener {
 
         botonVolver = new JButton();
         botonVolver.setBounds(10, 220, 65, 30);
-        botonVolver.setBackground(new Color(31, 209, 185));
+        botonVolver.setBackground(new Color(209, 242, 235));
         botonVolver.addActionListener(this);
         botonVolver.setOpaque(false);
         botonVolver.setContentAreaFilled(false);
         botonVolver.setBorderPainted(false);
-        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver3.png");
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
