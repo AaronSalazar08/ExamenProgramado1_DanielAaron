@@ -14,7 +14,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
     public JPanel panelPrimeraVista = new JPanel();
     public JButton botonAdministrativo, botonPaciente, botonSalir, botonExpendiente;
-    public JLabel fraseLabel,  tituloLabel, labelDescripcion ;
+    public JLabel fraseLabel, tituloLabel, labelDescripcion;
 
     public MenuPrimeraVista() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -44,40 +44,36 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         labelDescripcion.setFont(fuente4);
         labelDescripcion.setForeground(new Color(255, 255, 204));
 
-
         fraseLabel = new JLabel("El ayudar es don que todos tenemos");
         fraseLabel.setBounds(155, 120, 600, 70);
         Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 16); //
         fraseLabel.setFont(fuente2);
         fraseLabel.setForeground(new Color(81, 33, 176));
 
-        
-
         // JButton
         botonAdministrativo = new JButton("Administrativo");
         botonAdministrativo.setBounds(185, 330, 200, 30);
         botonAdministrativo.setForeground(Color.BLACK);
         botonAdministrativo.addActionListener(this);
-        botonAdministrativo.setBackground(new Color(255,255,102));
+        botonAdministrativo.setBackground(new Color(255, 255, 102));
 
         botonPaciente = new JButton("Registrar Paciente");
         botonPaciente.setBounds(185, 220, 200, 30);
         botonPaciente.setForeground(Color.BLACK);
         botonPaciente.addActionListener(this);
-        botonPaciente.setBackground(new Color(255,255,102));
+        botonPaciente.setBackground(new Color(255, 255, 102));
 
         botonExpendiente = new JButton("Expendiente Medico");
         botonExpendiente.setBounds(185, 275, 200, 30);
         botonExpendiente.setForeground(Color.BLACK);
         botonExpendiente.addActionListener(this);
-        botonExpendiente.setBackground(new Color(255,255,102));
+        botonExpendiente.setBackground(new Color(255, 255, 102));
 
         botonSalir = new JButton("Salir del programa");
         botonSalir.setBounds(185, 385, 200, 30);
         botonSalir.setForeground(Color.BLACK);
         botonSalir.addActionListener(this);
-        botonSalir.setBackground(new Color(255,255,102));        
-        
+        botonSalir.setBackground(new Color(255, 255, 102));
 
         // Agregar elementos al panel
         panelPrimeraVista.add(tituloLabel);
@@ -88,7 +84,6 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         panelPrimeraVista.add(botonExpendiente);
         panelPrimeraVista.add(botonSalir);
 
-
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -97,10 +92,10 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         // Ciclo if en caso de que se seleccione la opcion "Administrativo"
         if (e.getSource() == botonAdministrativo) {
             JOptionPane.showMessageDialog(null, "Acción de inicio de sesión");
-            LoginAdmin loginAdmin =  new LoginAdmin ();
+            LoginAdmin loginAdmin = new LoginAdmin();
             loginAdmin.setVisible(true);
             this.dispose();
-            
+
             // Ciclo if en caso de que se seleccione la opcion "Paciente"
 
         } else if (e.getSource() == botonPaciente) {
@@ -109,23 +104,21 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             instanciaPaciente.setVisible(true);
             this.dispose();
 
-        }else if (e.getSource() == botonSalir){try {
-            edad = Integer.parseInt(edadStr);
-            System.out.println("Edad: " + edad);
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Ingresa un número válido.");
+        } else if (e.getSource() == botonSalir) {
+
+            int confirmacion = JOptionPane.showConfirmDialog(null,
+                    "¿Estás seguro de que quieres eliminar este paciente? ",
+                    "Confirmar",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+
+                this.dispose();
+            }
+
         }
-    }
-            opcion = JOptionPane.showInputDialog("¿Estas seguro de salir del programa? \n 1: Sí \n 2: No");
 
-
-
-        }
-
-        if (e.getSource() == botonSalir){
-
-            this.dispose();
-        }
+        
 
     }
 
