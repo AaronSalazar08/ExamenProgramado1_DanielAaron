@@ -108,6 +108,11 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
         }
 
+        if (e.getSource() == botonSalir){
+
+            this.dispose();
+        }
+
     }
 
 }
