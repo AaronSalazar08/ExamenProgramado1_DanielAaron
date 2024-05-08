@@ -21,7 +21,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         this.setLocationRelativeTo(null);
         this.setSize(600, 550);
         this.setContentPane(panelPrimeraVista);
-        panelPrimeraVista.setBackground(new Color(119, 176, 178));
+        panelPrimeraVista.setBackground(new Color(31, 209, 185));
         setLocationRelativeTo(null);
         panelPrimeraVista.setLayout(null);
 
@@ -36,13 +36,13 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         tituloLabel.setBounds(110, 20, 400, 70);
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 26); //
         tituloLabel.setFont(fuente1);
-        tituloLabel.setForeground(new Color(81, 33, 176));
+        tituloLabel.setForeground(new Color(235, 35, 95));
 
         labelDescripcion = new JLabel("Centro de apoyo para niños con transtornos mentales en Costa Rica");
         labelDescripcion.setBounds(35, 70, 590, 70);
         Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 16); //
         labelDescripcion.setFont(fuente4);
-        labelDescripcion.setForeground(new Color(81, 33, 176));
+        labelDescripcion.setForeground(new Color(255, 255, 204));
 
 
         fraseLabel = new JLabel("El ayudar es don que todos tenemos");
@@ -58,23 +58,25 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonAdministrativo.setBounds(185, 330, 200, 30);
         botonAdministrativo.setForeground(Color.BLACK);
         botonAdministrativo.addActionListener(this);
+        botonAdministrativo.setBackground(new Color(255,255,102));
 
         botonPaciente = new JButton("Registrar Paciente");
         botonPaciente.setBounds(185, 220, 200, 30);
         botonPaciente.setForeground(Color.BLACK);
         botonPaciente.addActionListener(this);
+        botonPaciente.setBackground(new Color(255,255,102));
 
         botonExpendiente = new JButton("Expendiente Medico");
         botonExpendiente.setBounds(185, 275, 200, 30);
         botonExpendiente.setForeground(Color.BLACK);
         botonExpendiente.addActionListener(this);
+        botonExpendiente.setBackground(new Color(255,255,102));
 
         botonSalir = new JButton("Salir del programa");
         botonSalir.setBounds(185, 385, 200, 30);
         botonSalir.setForeground(Color.BLACK);
         botonSalir.addActionListener(this);
-        
-        
+        botonSalir.setBackground(new Color(255,255,102));        
         
 
         // Agregar elementos al panel
