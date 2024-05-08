@@ -107,7 +107,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         } else if (e.getSource() == botonSalir) {
 
             int confirmacion = JOptionPane.showConfirmDialog(null,
-                    "¿Estás seguro de que quieres eliminar este paciente? ",
+                    "¿Estás seguro de que quieres salir del programa? ",
                     "Confirmar",
                     JOptionPane.YES_NO_OPTION);
 
