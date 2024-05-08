@@ -1,13 +1,11 @@
 package Vista;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Image;
 import java.awt.Scrollbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,7 +16,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     // Creacion de elementos para la ventanas
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
-    private JButton botonEditar, botonEliminar, botonVolver, botonCerrarPrograma;
+    private JButton botonEliminar, botonVolver;
     private JTextField CedulaSeleccionada_txt;
     private JLabel labelCedula;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
@@ -33,13 +31,15 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     JTable tablaPacientes = new JTable(modeloTabla);
     JScrollPane scroll = new JScrollPane(tablaPacientes);
 
+    Font fuente = new Font("Century Schoolbook", Font.PLAIN, 20);
+
     public VentanaOpcionesAdministrativo() {
 
         // Ajustes para la ventana
         this.setTitle("Menú del Administrador");
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setSize(800, 800);
+        this.setSize(800, 600);
         setLocationRelativeTo(null);
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
         panelVentanaOpcionesAdministrativo.setBackground(new Color(119, 176, 178));
@@ -51,53 +51,34 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     public void Elementos() {
 
-        // BOTONES
-        botonEditar = new JButton("Editar Paciente");
-        botonEditar.setBounds(40, 120, 150, 20);
-        botonEditar.setForeground(new Color(27, 27, 30));
-        botonEditar.addActionListener(this);
-
-        botonEliminar = new JButton("Eliminar Paciente");
-        botonEliminar.setBounds(200, 120, 150, 20);
+        // JButton
+        botonEliminar = new JButton();
+        botonEliminar.setBounds(280, 500, 50, 50);
         botonEliminar.setForeground(new Color(27, 27, 30));
         botonEliminar.addActionListener(this);
+        ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/EliminarBoton (1).png");
+        Image imagenEliminar = iconoEliminar.getImage();
+        Image imagenEliminarAjustada = imagenEliminar.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon iconoEliminarAjustada = new ImageIcon(imagenEliminarAjustada);
+        botonEliminar.setIcon(iconoEliminarAjustada);
 
-        /*
-         * ImageIcon icono = new ImageIcon ("Vista/Imagenes/buscar.png");
-         * int ancho = botonBuscar.getWidth();
-         * int alto = botonBuscar.getHeight();
-         * ImageIcon icon = new ImageIcon(icono.getImage().getScaledInstance(alto,
-         * ancho, Image.SCALE_DEFAULT));
-         * botonBuscar.setIcon(icono);
-         */
-
-        botonVolver = new JButton("Volver");
-        botonVolver.setBounds(40, 700, 100, 20);
-        botonVolver.setForeground(new Color(27, 27, 30));
+        botonVolver = new JButton();
+        botonVolver.setBounds(40, 500, 65, 30);
+        botonVolver.setBackground(new Color(119, 176, 178));
         botonVolver.addActionListener(this);
-
-        botonCerrarPrograma = new JButton("Salir del programa");
-        botonCerrarPrograma.setBounds(600, 700, 150, 20);
-        botonCerrarPrograma.setForeground(new Color(27, 27, 30));
-        botonCerrarPrograma.addActionListener(this);
-
-        // LABEL (Mensaje)
-        labelCedula = new JLabel("Digite la cédula del paciente a manipular: ");
-        labelCedula.setBounds(40, 50, 300, 30);
-
-        // CAMPO DE TEXTO
-        CedulaSeleccionada_txt = new JTextField();
-        CedulaSeleccionada_txt.setEditable(true);
-        CedulaSeleccionada_txt.setBounds(300, 55, 200, 20);
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver2.png");
+        Image imagenVovler = iconoVolver.getImage();
+        Image imagenVolverAjustada = imagenVovler.getScaledInstance(55, 40, Image.SCALE_SMOOTH);
+        ImageIcon iconoVolverAjustada = new ImageIcon(imagenVolverAjustada);
+        botonVolver.setIcon(iconoVolverAjustada);
 
         // JSCROLLPANE
-        scroll.setBounds(40, 180, 700, 500);
+        scroll.setBounds(40, 30, 700, 370);
 
         // AGREGAR ELEMENTOS AL PANEL
-        panelVentanaOpcionesAdministrativo.add(botonEditar);
+
         panelVentanaOpcionesAdministrativo.add(botonVolver);
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
-        panelVentanaOpcionesAdministrativo.add(botonCerrarPrograma);
         panelVentanaOpcionesAdministrativo.add(CedulaSeleccionada_txt);
         panelVentanaOpcionesAdministrativo.add(labelCedula);
         panelVentanaOpcionesAdministrativo.add(scroll);
@@ -125,54 +106,31 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         }
 
-        if (e.getSource() == botonCerrarPrograma) {
+        /*
+         * 
+         *  if (e.getSource() == botonEliminar) {
 
-            this.dispose();
+            int filaSeleccionada = tablaPacientes.getSelectedRow();
 
-        }
+            if (filaSeleccionada != -1) {
 
-        if (e.getSource() == botonEditar) {
+                int confirmacion = JOptionPane.showConfirmDialog(null,
+                        "¿Estás seguro de que quieres eliminar este paciente? ",
+                        "Confirmar",
+                        JOptionPane.YES_NO_OPTION);
 
-            boolean pacienteEncontrado = false;
-            String busqueda = CedulaSeleccionada_txt.getText();
+                if (confirmacion == JOptionPane.YES_OPTION) {
 
-            try {
+                    Principal.listaPacientes.remove(filaSeleccionada);
 
-                if (Principal.listaPacientes != null) {
-                    for (Paciente encontrado : Principal.listaPacientes) {
-                        String edad = String.valueOf(encontrado.getEdad());
-                        if (encontrado.getCedula().equals(busqueda)) {
-                            pacienteEncontrado = true;
-
-                            EditarPaciente.nombrePaciente_txt.setText(encontrado.getNombre());
-                            EditarPaciente.cedulaPaciente_txt.setText(encontrado.getCedula());
-                            EditarPaciente.edadPaciete_txt.setText(edad);
-                            // VentanaInformacionPaciente.nombrePacienteTxt.setText(encontrado.getTranstorno());
-                            // VentanaInformacionPaciente.nombrePacienteTxt.setText(edad);
-                            EditarPaciente editarPaciente = new EditarPaciente();
-                            editarPaciente.setVisible(true);
-                            this.dispose();
-                            break;
-
-                        }
-
-                    }
-
-                    if (!pacienteEncontrado) {
-
-                        JOptionPane.showMessageDialog(null, "Paciente no encontrado");
-                    }
-                } else {
-
-                    JOptionPane.showMessageDialog(null, "La lista  de pacientes esta vacia...");
+                    modeloTabla.removeRow(filaSeleccionada);
                 }
 
-            } catch (NullPointerException ex) {
-
-                JOptionPane.showMessageDialog(null, "ERROR");
             }
 
         }
+         */
+       
 
     }
 

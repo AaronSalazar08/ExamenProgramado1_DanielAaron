@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import Modelo.Administrador;
 import Modelo.Paciente;
 import Modelo.Persona;
-
+import Vista.MenuPrimeraVista;
 import Vista.RegistroAdmin;
 
 
@@ -20,8 +20,8 @@ public class Principal {
     public static void main(String[] args) {
 
 
-        RegistroAdmin puenteRegistro = new RegistroAdmin();
-        puenteRegistro.setVisible(true);
+        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+        menuPrimeraVista.setVisible(true);
         
 
         
