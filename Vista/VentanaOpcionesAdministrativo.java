@@ -51,7 +51,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         // JButton
         botonEliminar = new JButton();
-        botonEliminar.setBounds(600, 450, 50, 50);
+        botonEliminar.setBounds(700, 450, 50, 50);
         botonEliminar.setForeground(new Color(27, 27, 30));
         botonEliminar.addActionListener(this);
         ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/EliminarBoton (1).png");
