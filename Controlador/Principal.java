@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 import Modelo.Administrador;
 import Modelo.Paciente;
+import Modelo.Persona;
 import Vista.MenuPrimeraVista;
+import Vista.LoginAdmin;
 
 
 public class Principal {
@@ -18,8 +20,8 @@ public class Principal {
     public static void main(String[] args) {
 
 
-        MenuPrimeraVista puenteMenu = new MenuPrimeraVista();
-        puenteMenu.setVisible(true);
+        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+        menuPrimeraVista.setVisible(true);
         
 
         
