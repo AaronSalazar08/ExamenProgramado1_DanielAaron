@@ -54,6 +54,9 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         botonEliminar.setBounds(700, 450, 50, 50);
         botonEliminar.setForeground(new Color(27, 27, 30));
         botonEliminar.addActionListener(this);
+        botonEliminar.setOpaque(false);
+        botonEliminar.setContentAreaFilled(false);
+        botonEliminar.setBorderPainted(false);
         ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/EliminarBoton (1).png");
         if (iconoEliminar != null && iconoEliminar.getImage() != null) {
             Image imagenEliminarAjustada = iconoEliminar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
@@ -64,6 +67,9 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         botonVolver.setBounds(40, 500, 65, 30);
         botonVolver.setBackground(new Color(119, 176, 178));
         botonVolver.addActionListener(this);
+        botonVolver.setOpaque(false);
+        botonVolver.setContentAreaFilled(false);
+        botonVolver.setBorderPainted(false);
         ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver2.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);

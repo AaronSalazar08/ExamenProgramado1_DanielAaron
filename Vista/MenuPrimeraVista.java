@@ -56,24 +56,28 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonAdministrativo.setForeground(Color.BLACK);
         botonAdministrativo.addActionListener(this);
         botonAdministrativo.setBackground(new Color(255, 255, 102));
+        botonAdministrativo.setBorderPainted(false);
 
         botonPaciente = new JButton("Registrar Paciente");
         botonPaciente.setBounds(185, 220, 200, 30);
         botonPaciente.setForeground(Color.BLACK);
         botonPaciente.addActionListener(this);
         botonPaciente.setBackground(new Color(255, 255, 102));
+        botonPaciente.setBorderPainted(false);
 
         botonExpendiente = new JButton("Expendiente Medico");
         botonExpendiente.setBounds(185, 275, 200, 30);
         botonExpendiente.setForeground(Color.BLACK);
         botonExpendiente.addActionListener(this);
         botonExpendiente.setBackground(new Color(255, 255, 102));
+        botonExpendiente.setBorderPainted(false);
 
         botonSalir = new JButton("Salir del programa");
         botonSalir.setBounds(185, 385, 200, 30);
         botonSalir.setForeground(Color.BLACK);
         botonSalir.addActionListener(this);
         botonSalir.setBackground(new Color(255, 255, 102));
+        botonSalir.setBorderPainted(false);
 
         // Agregar elementos al panel
         panelPrimeraVista.add(tituloLabel);

@@ -1,6 +1,7 @@
 package Vista;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
+import java.awt.Image;
 
 public class VentanaInformacionPaciente extends JFrame implements ActionListener {
 
@@ -46,12 +48,24 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         botonRegistrar = new JButton("Registrar");
         botonRegistrar.setBounds(320, 510, 150, 30);
         botonRegistrar.setForeground(Color.BLACK);
+        botonRegistrar.setBackground(new Color(31, 209, 185));
         botonRegistrar.addActionListener(this);
+        botonRegistrar.setOpaque(false);
+        botonRegistrar.setContentAreaFilled(false);
+        botonRegistrar.setBorderPainted(false);
 
-        botonCancelar = new JButton("Cancelar");
-        botonCancelar.setBounds(20, 510, 150, 30);
+        botonCancelar = new JButton();
+        botonCancelar.setBounds(20, 510, 55, 30);
         botonCancelar.setForeground(Color.BLACK);
         botonCancelar.addActionListener(this);
+        botonCancelar.setOpaque(false);
+        botonCancelar.setContentAreaFilled(false);
+        botonCancelar.setBorderPainted(false);
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver3.png");
+        if (iconoVolver != null && iconoVolver.getImage() != null) {
+            Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
+            botonCancelar.setIcon(new ImageIcon(imagenVolverAjustada));
+        }
 
         // JLabel
 
@@ -60,41 +74,40 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelNombrePaciente.setFont(fuente1);
         labelNombrePaciente.setForeground(new Color(81, 33, 176));
-        labelNombrePaciente.setForeground(new Color(255, 255, 204));
+        labelNombrePaciente.setForeground(new Color(81, 33, 176));
 
         labelCedula = new JLabel("Cédula:");
         labelCedula.setBounds(20, 40, 400, 70);
         Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelCedula.setFont(fuente2);
         labelCedula.setForeground(new Color(81, 33, 176));
-        labelCedula.setForeground(new Color(255, 255, 204));
+        labelCedula.setForeground(new Color(81, 33, 176));
 
         labelEdad = new JLabel("Edad:");
         labelEdad.setBounds(20, 170, 400, 70);
         Font fuente3 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelEdad.setFont(fuente3);
         labelEdad.setForeground(new Color(81, 33, 176));
-        labelEdad.setForeground(new Color(255, 255, 204));
+        labelEdad.setForeground(new Color(81, 33, 176));
 
         labelTranstorno = new JLabel("tipo de transtorno:");
         labelTranstorno.setBounds(20, 310, 400, 70);
         Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelTranstorno.setFont(fuente4);
         labelTranstorno.setForeground(new Color(81, 33, 176));
-        labelTranstorno.setForeground(new Color(255, 255, 204));
+        labelTranstorno.setForeground(new Color(81, 33, 176));
 
         labelSexo = new JLabel("Sexo:");
         labelSexo.setBounds(20, 240, 400, 70);
         Font fuente5 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelSexo.setFont(fuente5);
         labelSexo.setForeground(new Color(81, 33, 176));
-        labelSexo.setForeground(new Color(255, 255, 204));
+        labelSexo.setForeground(new Color(81, 33, 176));
 
         // JTexfield
 
         nombrePacienteTxt = new JTextField(" ");
         nombrePacienteTxt.setBounds(230, 130, 130, 20);
-
 
         cedulaPacienteTxt = new JTextField(" ");
         cedulaPacienteTxt.setBounds(220, 65, 150, 20);
@@ -141,13 +154,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         panelInfoPaciente.add(botonMasculino);
         panelInfoPaciente.add(botonFemenino);
-        
 
     }
 
     public void actionPerformed(ActionEvent e) {
-
-       
 
         if (e.getSource() == botonCancelar) {
             JOptionPane.showMessageDialog(null, "Regresando al menú principal");
@@ -157,7 +167,6 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         }
 
-        
         if (e.getSource() == botonRegistrar) {
 
             String entradaNombrePaciente = nombrePacienteTxt.getText().trim();
@@ -174,28 +183,25 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
             } else if (!entradaNombrePaciente.isEmpty() && !entradaEdadPaciente.isEmpty()
                     && !entradaCedulaPaciente.isEmpty()) {
 
-                        int edadPaciente; 
+                int edadPaciente;
                 try {
 
                     edadPaciente = Integer.parseInt(entradaEdadPaciente);
 
                     if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
-                        
+
                         JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
-                        return; 
+                        return;
                     }
 
                     if (botonMasculino.isSelected()) {
 
-                       
                         String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
 
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
                                 transtornoSeleccionado, sexoMasculino, edadPaciente);
 
-
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
-
 
                         ResultadosPaciente resultados = new ResultadosPaciente();
                         resultados.setVisible(true);
@@ -208,7 +214,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         String sexoFemenino = botonMasculino.isSelected() ? "Femenino" : "Femenino";
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
                                 transtornoSeleccionado, sexoFemenino, edadPaciente);
-                       
+
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
 
                         ResultadosPaciente resultados = new ResultadosPaciente();
