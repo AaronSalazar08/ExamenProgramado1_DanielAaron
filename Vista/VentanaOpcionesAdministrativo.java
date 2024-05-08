@@ -17,8 +17,6 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     // Creacion de elementos para la ventanas
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
     private JButton botonEliminar, botonVolver;
-    private JTextField CedulaSeleccionada_txt;
-    private JLabel labelCedula;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
 
     DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 5) {
@@ -53,24 +51,24 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         // JButton
         botonEliminar = new JButton();
-        botonEliminar.setBounds(280, 500, 50, 50);
+        botonEliminar.setBounds(700, 450, 50, 50);
         botonEliminar.setForeground(new Color(27, 27, 30));
         botonEliminar.addActionListener(this);
         ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/EliminarBoton (1).png");
-        Image imagenEliminar = iconoEliminar.getImage();
-        Image imagenEliminarAjustada = imagenEliminar.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-        ImageIcon iconoEliminarAjustada = new ImageIcon(imagenEliminarAjustada);
-        botonEliminar.setIcon(iconoEliminarAjustada);
+        if (iconoEliminar != null && iconoEliminar.getImage() != null) {
+            Image imagenEliminarAjustada = iconoEliminar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
+            botonEliminar.setIcon(new ImageIcon(imagenEliminarAjustada));
+        }
 
         botonVolver = new JButton();
         botonVolver.setBounds(40, 500, 65, 30);
         botonVolver.setBackground(new Color(119, 176, 178));
         botonVolver.addActionListener(this);
         ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver2.png");
-        Image imagenVovler = iconoVolver.getImage();
-        Image imagenVolverAjustada = imagenVovler.getScaledInstance(55, 40, Image.SCALE_SMOOTH);
-        ImageIcon iconoVolverAjustada = new ImageIcon(imagenVolverAjustada);
-        botonVolver.setIcon(iconoVolverAjustada);
+        if (iconoVolver != null && iconoVolver.getImage() != null) {
+            Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
+            botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
+        }
 
         // JSCROLLPANE
         scroll.setBounds(40, 30, 700, 370);
@@ -79,8 +77,6 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         panelVentanaOpcionesAdministrativo.add(botonVolver);
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
-        panelVentanaOpcionesAdministrativo.add(CedulaSeleccionada_txt);
-        panelVentanaOpcionesAdministrativo.add(labelCedula);
         panelVentanaOpcionesAdministrativo.add(scroll);
 
         for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
@@ -106,9 +102,9 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         }
 
-        /*
-         * 
-         *  if (e.getSource() == botonEliminar) {
+        
+         
+          if (e.getSource() == botonEliminar) {
 
             int filaSeleccionada = tablaPacientes.getSelectedRow();
 
@@ -129,7 +125,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
             }
 
         }
-         */
+         
        
 
     }
