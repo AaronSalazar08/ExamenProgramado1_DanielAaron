@@ -13,13 +13,13 @@ import java.awt.event.ActionListener;
 public class MenuPrimeraVista extends JFrame implements ActionListener {
 
     public JPanel panelPrimeraVista = new JPanel();
-    public JButton botonAdministrativo, botonPaciente;
-    public JLabel fraseLabel, indicacionesLabel, tituloLabel, labelDescripcion ;
+    public JButton botonAdministrativo, botonPaciente, botonSalir, botonExpendiente;
+    public JLabel fraseLabel,  tituloLabel, labelDescripcion ;
 
     public MenuPrimeraVista() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setSize(800, 800);
+        this.setSize(600, 550);
         this.setContentPane(panelPrimeraVista);
         panelPrimeraVista.setBackground(new Color(119, 176, 178));
         setLocationRelativeTo(null);
@@ -33,48 +33,59 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
         // JLabel
         tituloLabel = new JLabel("Centro de Apoyo Solís Salazar");
-        tituloLabel.setBounds(220, 20, 400, 70);
+        tituloLabel.setBounds(110, 20, 400, 70);
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 26); //
         tituloLabel.setFont(fuente1);
         tituloLabel.setForeground(new Color(81, 33, 176));
 
         labelDescripcion = new JLabel("Centro de apoyo para niños con transtornos mentales en Costa Rica");
-        labelDescripcion.setBounds(130, 70, 590, 70);
-        Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 18); //
+        labelDescripcion.setBounds(35, 70, 590, 70);
+        Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 16); //
         labelDescripcion.setFont(fuente4);
         labelDescripcion.setForeground(new Color(81, 33, 176));
 
 
         fraseLabel = new JLabel("El ayudar es don que todos tenemos");
-        fraseLabel.setBounds(250, 120, 600, 70);
-        Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 18); //
+        fraseLabel.setBounds(155, 120, 600, 70);
+        Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 16); //
         fraseLabel.setFont(fuente2);
         fraseLabel.setForeground(new Color(81, 33, 176));
 
-        indicacionesLabel = new JLabel("Por favor indique el tipo de usuario a atender");
-        indicacionesLabel.setBounds(230, 340, 600, 70);
-        Font fuente3 = new Font("Century Schoolbook", Font.PLAIN, 16); //
-        indicacionesLabel.setFont(fuente3);
-        indicacionesLabel.setForeground(new Color(81, 33, 176));
+        
 
         // JButton
         botonAdministrativo = new JButton("Administrativo");
-        botonAdministrativo.setBounds(180, 410, 200, 30);
+        botonAdministrativo.setBounds(185, 330, 200, 30);
         botonAdministrativo.setForeground(Color.BLACK);
         botonAdministrativo.addActionListener(this);
 
-        botonPaciente = new JButton("Paciente");
-        botonPaciente.setBounds(420, 410, 200, 30);
+        botonPaciente = new JButton("Registrar Paciente");
+        botonPaciente.setBounds(185, 220, 200, 30);
         botonPaciente.setForeground(Color.BLACK);
         botonPaciente.addActionListener(this);
+
+        botonExpendiente = new JButton("Expendiente Medico");
+        botonExpendiente.setBounds(185, 275, 200, 30);
+        botonExpendiente.setForeground(Color.BLACK);
+        botonExpendiente.addActionListener(this);
+
+        botonSalir = new JButton("Salir del programa");
+        botonSalir.setBounds(185, 385, 200, 30);
+        botonSalir.setForeground(Color.BLACK);
+        botonSalir.addActionListener(this);
+        
+        
+        
 
         // Agregar elementos al panel
         panelPrimeraVista.add(tituloLabel);
         panelPrimeraVista.add(fraseLabel);
-        panelPrimeraVista.add(indicacionesLabel);
         panelPrimeraVista.add(botonAdministrativo);
         panelPrimeraVista.add(botonPaciente);
         panelPrimeraVista.add(labelDescripcion);
+        panelPrimeraVista.add(botonExpendiente);
+        panelPrimeraVista.add(botonSalir);
+
 
     }
 
