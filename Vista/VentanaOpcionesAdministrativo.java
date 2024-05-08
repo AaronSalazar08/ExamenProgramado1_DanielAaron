@@ -16,7 +16,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     // Creacion de elementos para la ventanas
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
-    private JButton botonEliminar, botonVolver;
+    private JButton botonEliminar, botonVolver, botonEditar;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
 
     DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 10000) {
@@ -76,6 +76,19 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
         }
 
+        botonEditar = new JButton();
+        botonEditar.setBounds(600, 450, 50, 50);
+        botonEditar.setForeground(new Color(27, 27, 30));
+        botonEditar.addActionListener(this);
+        botonEditar.setOpaque(false);
+        botonEditar.setContentAreaFilled(false);
+        botonEditar.setBorderPainted(false);
+        ImageIcon iconoEditar = new ImageIcon("Vista/Imagenes/Editar.png");
+        if (iconoEditar != null && iconoEditar.getImage() != null) {
+            Image imagenEditarAjustada = iconoEditar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
+            botonEditar.setIcon(new ImageIcon(imagenEditarAjustada));
+        }
+
         // JSCROLLPANE
         scroll.setBounds(40, 30, 700, 370);
 
@@ -83,6 +96,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         panelVentanaOpcionesAdministrativo.add(botonVolver);
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
+        panelVentanaOpcionesAdministrativo.add(botonEditar);
         panelVentanaOpcionesAdministrativo.add(scroll);
 
         for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
