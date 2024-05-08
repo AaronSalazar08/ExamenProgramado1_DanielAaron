@@ -92,6 +92,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        String opcion;
 
         // Ciclo if en caso de que se seleccione la opcion "Administrativo"
         if (e.getSource() == botonAdministrativo) {
@@ -107,6 +108,17 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             VentanaInformacionPaciente instanciaPaciente = new VentanaInformacionPaciente();
             instanciaPaciente.setVisible(true);
             this.dispose();
+
+        }else if (e.getSource() == botonSalir){try {
+            edad = Integer.parseInt(edadStr);
+            System.out.println("Edad: " + edad);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: Ingresa un número válido.");
+        }
+    }
+            opcion = JOptionPane.showInputDialog("¿Estas seguro de salir del programa? \n 1: Sí \n 2: No");
+
+
 
         }
 
