@@ -9,7 +9,7 @@ import Modelo.Administrador;
 import Modelo.Paciente;
 import Modelo.Persona;
 import Vista.MenuPrimeraVista;
-import Vista.RegistroAdmin;
+import Vista.LoginAdmin;
 
 
 public class Principal {
