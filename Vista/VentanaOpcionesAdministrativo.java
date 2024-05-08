@@ -19,7 +19,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
     private JButton botonEliminar, botonVolver;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
 
-    DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 5) {
+    DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 10000) {
 
         @Override
         public boolean isCellEditable(int row, int column) {
@@ -40,7 +40,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         this.setSize(800, 600);
         setLocationRelativeTo(null);
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
-        panelVentanaOpcionesAdministrativo.setBackground(new Color(119, 176, 178));
+        panelVentanaOpcionesAdministrativo.setBackground(new Color(31, 209, 185));
         panelVentanaOpcionesAdministrativo.setLayout(null);
         Elementos();// llamada al metodo de elementos para agregar los elementos del panel a la
                     // interfaz grafica
@@ -57,7 +57,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         botonEliminar.setOpaque(false);
         botonEliminar.setContentAreaFilled(false);
         botonEliminar.setBorderPainted(false);
-        ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/EliminarBoton (1).png");
+        ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/Eliminar1.png");
         if (iconoEliminar != null && iconoEliminar.getImage() != null) {
             Image imagenEliminarAjustada = iconoEliminar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
             botonEliminar.setIcon(new ImageIcon(imagenEliminarAjustada));
@@ -70,7 +70,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         botonVolver.setOpaque(false);
         botonVolver.setContentAreaFilled(false);
         botonVolver.setBorderPainted(false);
-        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver2.png");
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver3.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
