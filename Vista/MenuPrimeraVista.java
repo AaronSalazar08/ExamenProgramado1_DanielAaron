@@ -109,19 +109,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             instanciaPaciente.setVisible(true);
             this.dispose();
 
-        }else if (e.getSource() == botonSalir){try {
-            edad = Integer.parseInt(edadStr);
-            System.out.println("Edad: " + edad);
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Ingresa un número válido.");
-        }
-    }
-            opcion = JOptionPane.showInputDialog("¿Estas seguro de salir del programa? \n 1: Sí \n 2: No");
-
-
-
-        }
-
+        
         if (e.getSource() == botonSalir){
 
             this.dispose();
@@ -129,4 +117,5 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
     }
 
+    }
 }

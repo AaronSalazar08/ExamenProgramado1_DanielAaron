@@ -157,6 +157,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         }
 
+
         
         if (e.getSource() == botonRegistrar) {
 
@@ -184,6 +185,8 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
                         return; 
                     }
+
+                    
 
                     if (botonMasculino.isSelected()) {
 
