@@ -101,7 +101,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
         // Ciclo if en caso de que se seleccione la opcion "Administrativo"
         if (e.getSource() == botonAdministrativo) {
-            JOptionPane.showMessageDialog(null, "Acción de inicio de sesión");
+            JOptionPane.showMessageDialog(null, "Ingrese su perfil");
             LoginAdmin loginAdmin = new LoginAdmin();
             loginAdmin.setVisible(true);
             this.dispose();
@@ -109,7 +109,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             // Ciclo if en caso de que se seleccione la opcion "Paciente"
 
         } else if (e.getSource() == botonPaciente) {
-            JOptionPane.showMessageDialog(null, "Interfaz Paciente seleccionada");
+            JOptionPane.showMessageDialog(null, "Ingrese los datos del nuevo paciente");
             VentanaInformacionPaciente instanciaPaciente = new VentanaInformacionPaciente();
             instanciaPaciente.setVisible(true);
             this.dispose();
@@ -129,6 +129,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         }
         if(e.getSource()==botonExpendiente){
 
+            JOptionPane.showMessageDialog(null, "Digite su cedula para conocer su expediente");
             ResultadosPaciente resultadosPaciente = new ResultadosPaciente();
             resultadosPaciente.setVisible(true);
             this.dispose();

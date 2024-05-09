@@ -89,6 +89,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
         cedula_txt = new JTextField();
         cedula_txt.setBounds(110, 100, 150, 20);
         cedula_txt.setFont(fuenteLabel);
+        cedula_txt.setToolTipText("Ingrese el numero de cedula que desea buscar");
 
         // JButton
         botonVolver = new JButton();

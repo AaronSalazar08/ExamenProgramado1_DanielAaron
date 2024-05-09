@@ -59,7 +59,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         botonEliminar.setContentAreaFilled(false);
         botonEliminar.setBorderPainted(false);
         ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/Eliminar2.png");
-        botonEliminar.setToolTipText("Eliminar");
+        botonEliminar.setToolTipText("Seleccione un paciente y presione este boton para eliminarlo");
         if (iconoEliminar != null && iconoEliminar.getImage() != null) {
             Image imagenEliminarAjustada = iconoEliminar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
             botonEliminar.setIcon(new ImageIcon(imagenEliminarAjustada));
@@ -87,7 +87,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         botonEditar.setContentAreaFilled(false);
         botonEditar.setBorderPainted(false);
         ImageIcon iconoEditar = new ImageIcon("Vista/Imagenes/Editar1.png");
-        botonEditar.setToolTipText("Editar paciente");
+        botonEditar.setToolTipText("Selecciona un paciente y editalo presionando este boton");
         if (iconoEditar != null && iconoEditar.getImage() != null) {
             Image imagenEditarAjustada = iconoEditar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
             botonEditar.setIcon(new ImageIcon(imagenEditarAjustada));

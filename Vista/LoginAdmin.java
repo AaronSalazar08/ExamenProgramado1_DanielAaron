@@ -70,10 +70,12 @@ public class LoginAdmin extends JFrame implements ActionListener {
         nombreAdmin = new JTextField();
         nombreAdmin.setBounds(70, 60, 150, 20);
         nombreAdmin.setFont(fuente);
+        nombreAdmin.setToolTipText("Ingrese su usuario");
 
         areaContraseña = new JPasswordField();
         areaContraseña.setBounds(70, 140, 150, 20);
         areaContraseña.setFont(fuente);
+        areaContraseña.setToolTipText("Ingrese su contraseña");
 
         // JButton
 
@@ -82,6 +84,7 @@ public class LoginAdmin extends JFrame implements ActionListener {
         botonRegistrar.addActionListener(this);
         botonRegistrar.setBackground(new Color(255, 255, 255));
         botonRegistrar.setFont(fuenteBoton);
+        
        
         
 
