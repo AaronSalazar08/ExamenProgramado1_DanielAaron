@@ -66,6 +66,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         botonCancelar.setOpaque(false);
         botonCancelar.setContentAreaFilled(false);
         botonCancelar.setBorderPainted(false);
+        botonCancelar.setToolTipText("Atrás");
         ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
@@ -81,13 +82,13 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         labelNombrePaciente.setForeground(new Color(23, 32, 42));
 
         labelCedula = new JLabel("Cédula:");
-        labelCedula.setBounds(20, 40, 400, 70);
+        labelCedula.setBounds(30, 40, 400, 70);
         Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelCedula.setFont(fuente2);
         labelCedula.setForeground(new Color(23, 32, 42));
 
         labelEdad = new JLabel("Edad:");
-        labelEdad.setBounds(20, 170, 400, 70);
+        labelEdad.setBounds(40, 170, 400, 70);
         Font fuente3 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelEdad.setFont(fuente3);
         labelEdad.setForeground(new Color(23, 32, 42));
@@ -99,7 +100,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         labelTranstorno.setForeground(new Color(23, 32, 42));
 
         labelSexo = new JLabel("Sexo:");
-        labelSexo.setBounds(20, 240, 400, 70);
+        labelSexo.setBounds(40, 240, 400, 70);
         Font fuente5 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelSexo.setFont(fuente5);
         labelSexo.setForeground(new Color(23, 32, 42));
@@ -107,18 +108,18 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         // JTexfield
 
         nombrePacienteTxt = new JTextField(" ");
-        nombrePacienteTxt.setBounds(185, 130, 130, 20);
+        nombrePacienteTxt.setBounds(120, 130, 130, 20);
 
         cedulaPacienteTxt = new JTextField(" ");
-        cedulaPacienteTxt.setBounds(185, 65, 150, 20);
+        cedulaPacienteTxt.setBounds(120, 65, 150, 20);
 
         EdadPacienteTxt = new JTextField(" ");
-        EdadPacienteTxt.setBounds(190, 195, 30, 20);
+        EdadPacienteTxt.setBounds(120, 195, 30, 20);
 
         // JComboBox
 
         comboTranstorno = new JComboBox();
-        comboTranstorno.setBounds(195, 330, 125, 45);
+        comboTranstorno.setBounds(195, 330, 125, 30);
         comboTranstorno.addItem("Depresión");
         comboTranstorno.addItem("Transtorno Obsesivo Compulsivo");
         comboTranstorno.addItem("Ansiedad");
@@ -127,10 +128,12 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         // JRadioButton
 
         botonMasculino = new JRadioButton("Masculino");
-        botonMasculino.setBounds(195, 240, 95, 35);
+        botonMasculino.setBounds(120, 240, 95, 35);
+        botonMasculino.setBackground(new Color(209, 242, 235));
 
         botonFemenino = new JRadioButton("Femenino");
-        botonFemenino.setBounds(195, 270, 95, 35);
+        botonFemenino.setBounds(120, 270, 95, 35);
+        botonFemenino.setBackground(new Color(209, 242, 235));
 
         ButtonGroup grupoBotones = new ButtonGroup();
         grupoBotones.add(botonMasculino);
@@ -167,9 +170,6 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         }
 
-
-        
-
         if (e.getSource() == botonRegistrar) {
 
             String entradaNombrePaciente = nombrePacienteTxt.getText().trim();
@@ -178,6 +178,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
             String transtornoSeleccionado = (String) comboTranstorno.getSelectedItem();
             boolean masculinoSeleccionado = botonMasculino.isSelected();
             boolean femeninoSeleccionado = botonFemenino.isSelected();
+            String itemSeleccionado = (String) comboTranstorno.getSelectedItem();
 
             if (entradaNombrePaciente.isEmpty() || entradaEdadPaciente.isEmpty() || entradaCedulaPaciente.isEmpty()) {
 
@@ -197,16 +198,22 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         return;
                     }
 
-                    
-
                     if (botonMasculino.isSelected()) {
 
                         String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
 
-                        Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                                transtornoSeleccionado, sexoMasculino, edadPaciente);
+                        if (itemSeleccionado != null && itemSeleccionado.equals("Depresión")) {
+                            ResultadosPaciente resultadosPaciente = new ResultadosPaciente();
+                            resultadosPaciente.areaApoyo.setText("Depresion");
+                            resultadosPaciente.areaTratamiento.append("Depresion");
 
-                        JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
+                            Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
+                                    transtornoSeleccionado, sexoMasculino, edadPaciente);
+                           
+
+                        }
+
+                        JOptionPane.showMessageDialog(null, "Registrado exitosamente");
 
                         MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
                         menuPrimeraVista.setVisible(true);

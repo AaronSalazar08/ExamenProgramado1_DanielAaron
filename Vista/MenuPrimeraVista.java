@@ -82,7 +82,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonSalir.setForeground(Color.BLACK);
         botonSalir.addActionListener(this);
         botonSalir.setBackground(new Color(255, 255, 255));
-        botonSalir.setToolTipText("Permite salir del programa");
+        botonSalir.setToolTipText("Si presiona este boton sale del programa");
         //botonSalir.setBorderPainted(false);
 
         // Agregar elementos al panel

@@ -48,8 +48,6 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
     JTable tablaPacientes = new JTable(modeloTabla);
     JScrollPane scroll = new JScrollPane(tablaPacientes);
 
-    
-
     public ResultadosPaciente() {
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -66,13 +64,15 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
     public void Elementos() {
 
         // JTextArea
-        JTextArea areaTratamiento = new JTextArea();
+        areaTratamiento = new JTextArea(" ");
         areaTratamiento.setBounds(15, 300, 350, 300);
+        areaTratamiento.setEditable(false);
 
-        JTextArea areaApoyo = new JTextArea();
+        areaApoyo = new JTextArea(" ");
         areaApoyo.setBounds(420, 300, 350, 300);
+        areaApoyo.setEditable(false);
 
-        //JLabel
+        // JLabel
         tituloApoyo = new JLabel("Apoyo:");
         tituloApoyo.setBounds(440, 230, 400, 70);
         tituloApoyo.setFont(fuenteLabel);
@@ -85,14 +85,12 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
         cedula_lb.setBounds(30, 70, 400, 70);
         cedula_lb.setFont(fuenteLabel);
 
-        //JTextField
+        // JTextField
         cedula_txt = new JTextField();
         cedula_txt.setBounds(110, 100, 150, 20);
         cedula_txt.setFont(fuenteLabel);
-        
 
-
-        //JButton
+        // JButton
         botonVolver = new JButton();
         botonVolver.setBounds(40, 700, 65, 30);
         botonVolver.setBackground(new Color(209, 242, 235));
@@ -147,38 +145,34 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
         }
 
-        if(e.getSource() == botonBuscar){
+        if (e.getSource() == botonBuscar) {
 
+            boolean empleadoEncontrado = true;
+            String busqueda = cedula_txt.getText();
 
-        boolean empleadoEncontrado = true;
-		String busqueda = cedula_txt.getText();
+            for (Paciente buscado : Principal.listaPacientes) {
 
-		for (Paciente buscado : Principal.listaPacientes) {
-			
-			if (buscado.getCedula().equals(busqueda)) {
+                if (buscado.getCedula().equals(busqueda)) {
 
-                JOptionPane.showMessageDialog(null, "Paciente encontrado");
-				for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
+                    JOptionPane.showMessageDialog(null, "Paciente encontrado");
+                    for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
 
-                    Paciente paciente = Principal.listaPacientes.get(contador);
-                    tablaPacientes.setValueAt(paciente.getNombre(), contador, 0);
-                    tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
-                    tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
-                    tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
-                    tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+                        Paciente paciente = Principal.listaPacientes.get(contador);
+                        tablaPacientes.setValueAt(paciente.getNombre(), contador, 0);
+                        tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
+                        tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
+                        tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
+                        tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+                    }
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Paciente no encontrado");
+
                 }
 
-
-			}else {
-
-                JOptionPane.showMessageDialog(null, "Paciente no encontrado");
-
-                
             }
 
-		}
-
-		
         }
 
     }
