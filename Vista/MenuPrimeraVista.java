@@ -58,6 +58,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonAdministrativo.setForeground(Color.BLACK);
         botonAdministrativo.addActionListener(this);
         botonAdministrativo.setBackground(new Color(255, 255, 255));
+        botonAdministrativo.setToolTipText("Apartado para acciones adminstrativas");
        // botonAdministrativo.setBorderPainted(false);
 
         botonPaciente = new JButton("Registrar Paciente");
@@ -65,6 +66,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonPaciente.setForeground(Color.BLACK);
         botonPaciente.addActionListener(this);
         botonPaciente.setBackground(new Color(255, 255, 255));
+        botonPaciente.setToolTipText("Registro de datos del paciente");
         //botonPaciente.setBorderPainted(false);
 
         botonExpendiente = new JButton("Expendiente Medico");
@@ -72,6 +74,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonExpendiente.setForeground(Color.BLACK);
         botonExpendiente.addActionListener(this);
         botonExpendiente.setBackground(new Color(255, 255, 255));
+        botonExpendiente.setToolTipText("Busqueda individual de expendientes de pacientes");
        // botonExpendiente.setBorderPainted(false);
 
         botonSalir = new JButton("Salir del programa");
@@ -79,6 +82,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonSalir.setForeground(Color.BLACK);
         botonSalir.addActionListener(this);
         botonSalir.setBackground(new Color(255, 255, 255));
+        botonSalir.setToolTipText("Permite salir del programa");
         //botonSalir.setBorderPainted(false);
 
         // Agregar elementos al panel
@@ -110,14 +114,6 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             instanciaPaciente.setVisible(true);
             this.dispose();
 
-<<<<<<< HEAD
-
-        
-        if (e.getSource() == botonSalir){
-
-
-=======
->>>>>>> 81176e51b3ca2eae90309d9e98297853ba620ba1
         } else if (e.getSource() == botonSalir) {
 
             int confirmacion = JOptionPane.showConfirmDialog(null,
@@ -135,10 +131,6 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
             ResultadosPaciente resultadosPaciente = new ResultadosPaciente();
             resultadosPaciente.setVisible(true);
-<<<<<<< HEAD
-
-=======
->>>>>>> 81176e51b3ca2eae90309d9e98297853ba620ba1
             this.dispose();
         }
 

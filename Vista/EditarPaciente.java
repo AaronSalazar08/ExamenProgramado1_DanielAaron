@@ -115,6 +115,7 @@ public class EditarPaciente extends JFrame implements ActionListener {
         botonVolver.setOpaque(false);
         botonVolver.setContentAreaFilled(false);
         botonVolver.setBorderPainted(false);
+        botonVolver.setToolTipText("Atrás");
         ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);

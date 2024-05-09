@@ -101,6 +101,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
         botonVolver.setContentAreaFilled(false);
         botonVolver.setBorderPainted(false);
         ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
+        botonVolver.setToolTipText("Atrás");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
@@ -114,6 +115,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
         botonBuscar.setContentAreaFilled(false);
         botonBuscar.setBorderPainted(false);
         ImageIcon iconoBuscar = new ImageIcon("Vista/Imagenes/Buscar.png");
+        botonBuscar.setToolTipText("Buscar");
         if (iconoBuscar != null && iconoBuscar.getImage() != null) {
             Image imagenBuscarAjustada = iconoBuscar.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonBuscar.setIcon(new ImageIcon(imagenBuscarAjustada));
