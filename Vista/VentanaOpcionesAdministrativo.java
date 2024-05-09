@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import Controlador.Metodos;
 import Controlador.Principal;
 import Modelo.Paciente;
 
@@ -101,6 +102,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
         panelVentanaOpcionesAdministrativo.add(botonEditar);
         panelVentanaOpcionesAdministrativo.add(scroll);
+        
 
         for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
 
@@ -186,7 +188,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
                 int conteoColumna = tablaPacientes.getColumnCount();
 
                 for (int columna = 0; columna < conteoColumna; columna++) {
-
+                   
                     Object valor = tablaPacientes.getValueAt(filaSeleccionada, columna);
                     if (valor != null && !valor.toString().trim().isEmpty()) {
                         filaVacia = false;
@@ -201,9 +203,20 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
                     JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
                     return;
                 } else {
-                    EditarPaciente editarPaciente = new EditarPaciente();
-                    editarPaciente.setVisible(true);
-                    this.dispose();
+                    for (Paciente paciente : Principal.listaPacientes){
+
+                        String edad = String.valueOf(paciente.getEdad());
+                        Controlador.Metodos.EditarPacienteInstancia();
+                        Metodos.editarPaciente.cedulaPacienteTxt.setText(paciente.getCedula());
+                        Metodos.editarPaciente.nombrePacienteTxt.setText(paciente.getNombre());
+                        Metodos.editarPaciente.EdadPacienteTxt.setText(edad);
+
+                        EditarPaciente editarPaciente = new EditarPaciente();
+                        editarPaciente.setVisible(true);
+                        this.dispose();
+
+                    }
+                   
 
                 }
 

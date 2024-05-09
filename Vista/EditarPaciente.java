@@ -13,9 +13,13 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
+import Controlador.Principal;
+import Modelo.Paciente;
 
 public class EditarPaciente extends JFrame implements ActionListener {
 
@@ -26,7 +30,7 @@ public class EditarPaciente extends JFrame implements ActionListener {
     JLabel labelNombrePaciente, labelCedula, labelEdad, labelTranstorno, labelSexo, labelTitulo;
     JButton botonVolver, botonAceptar;
 
-    public EditarPaciente (){
+    public EditarPaciente() {
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -40,10 +44,10 @@ public class EditarPaciente extends JFrame implements ActionListener {
 
     }
 
-    public void Elementos (){
+    public void Elementos() {
 
-        //JLabel
-        labelNombrePaciente = new JLabel ("Nombre: ");
+        // JLabel
+        labelNombrePaciente = new JLabel("Nombre: ");
         labelNombrePaciente.setBounds(20, 40, 350, 50);
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelNombrePaciente.setFont(fuente1);
@@ -73,27 +77,25 @@ public class EditarPaciente extends JFrame implements ActionListener {
         labelSexo.setFont(fuente5);
         labelSexo.setForeground(new Color(23, 32, 42));
 
-        //JTextField
-        nombrePacienteTxt = new JTextField(" ");
+        // JTextField
+        nombrePacienteTxt = new JTextField();
         nombrePacienteTxt.setBounds(120, 55, 130, 20);
 
-        cedulaPacienteTxt = new JTextField(" ");
+        cedulaPacienteTxt = new JTextField();
         cedulaPacienteTxt.setBounds(120, 20, 150, 20);
 
-        EdadPacienteTxt = new JTextField(" ");
+        EdadPacienteTxt = new JTextField();
         EdadPacienteTxt.setBounds(120, 95, 30, 20);
 
-        //JComboBox
+        // JComboBox
         comboTranstorno = new JComboBox();
         comboTranstorno.setBounds(200, 180, 125, 30);
         comboTranstorno.addItem("Depresión");
         comboTranstorno.addItem("Transtorno Obsesivo Compulsivo");
         comboTranstorno.addItem("Ansiedad");
         comboTranstorno.addItem("Deficit atencional");
-       
 
-
-         // JRadioButton
+        // JRadioButton
 
         botonMasculino = new JRadioButton("Masculino");
         botonMasculino.setBounds(120, 130, 95, 35);
@@ -107,7 +109,7 @@ public class EditarPaciente extends JFrame implements ActionListener {
         grupoBotones.add(botonMasculino);
         grupoBotones.add(botonFemenino);
 
-        //JButton
+        // JButton
         botonVolver = new JButton();
         botonVolver.setBounds(10, 300, 65, 30);
         botonVolver.setBackground(new Color(209, 242, 235));
@@ -121,7 +123,6 @@ public class EditarPaciente extends JFrame implements ActionListener {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
         }
-
 
         botonAceptar = new JButton();
         botonAceptar.setBounds(280, 290, 85, 40);
@@ -154,25 +155,87 @@ public class EditarPaciente extends JFrame implements ActionListener {
         panelEditarPaciente.add(botonVolver);
         panelEditarPaciente.add(botonAceptar);
 
-
-
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if(e.getSource() == botonVolver){
+
+        String entradaNombre = nombrePacienteTxt.getText().trim();
+        String entradaCedula = cedulaPacienteTxt.getText().trim();
+        String entradaEdad = EdadPacienteTxt.getText().trim();
+        String transtornoSeleccionado = (String) comboTranstorno.getSelectedItem();
+        boolean masculinoSeleccionado = botonMasculino.isSelected();
+        boolean femeninoSeleccionado = botonFemenino.isSelected();
+
+        if (e.getSource() == botonVolver) {
 
             VentanaOpcionesAdministrativo ventanaOpcionesAdministrativo = new VentanaOpcionesAdministrativo();
             ventanaOpcionesAdministrativo.setVisible(true);
             this.dispose();
         }
 
-        if(e.getSource() == botonAceptar){
+        if (e.getSource() == botonAceptar) {
 
-            
+            if (entradaNombre.isEmpty() || entradaEdad.isEmpty() || entradaCedula.isEmpty()) {
+
+                JOptionPane.showMessageDialog(null, "Verifique que los campos a rellenar no estén vacíos");
+
+            } else if (!entradaNombre.isEmpty() && !entradaEdad.isEmpty()
+                    && !entradaCedula.isEmpty()) {
+                int edadPaciente;
+                try {
+
+                    edadPaciente = Integer.parseInt(entradaEdad);
+
+                    if (botonMasculino.isSelected()) {
+
+                        String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
+
+                        
+                        
+                        Principal.listaPacientes.add(new Paciente(entradaNombre, entradaCedula, transtornoSeleccionado,
+                        sexoMasculino, edadPaciente));
+                        nombrePacienteTxt.setText(" ");
+                        cedulaPacienteTxt.setText(" ");
+                        EdadPacienteTxt.setText(" ");
+
+                        JOptionPane.showMessageDialog(null, "Paciente editado");
+
+                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                        menuPrimeraVista.setVisible(true);
+                        this.dispose();
+
+                    }
+
+                    if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
+
+                        JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
+                        return;
+                    }
+
+                    else if (botonFemenino.isSelected()) {
+
+                        String sexoFemenino = botonFemenino.isSelected() ? "Masculino" : "Masculino";
+
+                        Principal.listaPacientes.add(new Paciente(entradaNombre, entradaCedula, transtornoSeleccionado,
+                                sexoFemenino, edadPaciente));
+
+                        JOptionPane.showMessageDialog(null, "Paciente editado");
+
+                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                        menuPrimeraVista.setVisible(true);
+                        this.dispose();
+
+                    }
+
+                } catch (NumberFormatException ex) {
+
+                    JOptionPane.showMessageDialog(null, "Debe ingresar un valor valido para la edad");
+                }
+
+            }
+
+            throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
         }
-    
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
-
 }

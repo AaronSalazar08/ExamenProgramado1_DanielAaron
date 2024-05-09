@@ -42,6 +42,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
     }
 
+    /**
+     * 
+     */
+    @SuppressWarnings("unchecked")
     public void Elementos() {
         // Añadir elementos al panel
 
@@ -178,7 +182,6 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
             String transtornoSeleccionado = (String) comboTranstorno.getSelectedItem();
             boolean masculinoSeleccionado = botonMasculino.isSelected();
             boolean femeninoSeleccionado = botonFemenino.isSelected();
-            String itemSeleccionado = (String) comboTranstorno.getSelectedItem();
 
             if (entradaNombrePaciente.isEmpty() || entradaEdadPaciente.isEmpty() || entradaCedulaPaciente.isEmpty()) {
 
@@ -192,26 +195,12 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
                     edadPaciente = Integer.parseInt(entradaEdadPaciente);
 
-                    if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
-
-                        JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
-                        return;
-                    }
-
                     if (botonMasculino.isSelected()) {
 
                         String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
 
-                        if (itemSeleccionado != null && itemSeleccionado.equals("Depresión")) {
-                            ResultadosPaciente resultadosPaciente = new ResultadosPaciente();
-                            resultadosPaciente.areaApoyo.setText("Depresion");
-                            resultadosPaciente.areaTratamiento.append("Depresion");
-
-                            Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                                    transtornoSeleccionado, sexoMasculino, edadPaciente);
-                           
-
-                        }
+                        Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
+                                transtornoSeleccionado, sexoMasculino, edadPaciente);
 
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente");
 
@@ -221,18 +210,27 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
                     }
 
+                    if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
+
+                        JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
+                        return;
+                    }
+
                     else if (botonFemenino.isSelected()) {
 
-                        String sexoFemenino = botonMasculino.isSelected() ? "Femenino" : "Femenino";
+                        String sexoFemenino = botonFemenino.isSelected() ? "Masculino" : "Masculino";
+
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
                                 transtornoSeleccionado, sexoFemenino, edadPaciente);
 
-                        JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
+                        JOptionPane.showMessageDialog(null, "Registrado exitosamente");
 
                         MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
                         menuPrimeraVista.setVisible(true);
                         this.dispose();
+
                     }
+
                 } catch (NumberFormatException ex) {
 
                     JOptionPane.showMessageDialog(null, "Debe ingresar un valor valido para la edad");
@@ -241,5 +239,9 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         } // Fin boton registrar
 
+       
+        
+
     }// Fin action listener
+
 }// Fin Clase principal
