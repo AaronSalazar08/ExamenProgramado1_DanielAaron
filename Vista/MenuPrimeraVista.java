@@ -110,14 +110,6 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             instanciaPaciente.setVisible(true);
             this.dispose();
 
-<<<<<<< HEAD
-
-        
-        if (e.getSource() == botonSalir){
-
-
-=======
->>>>>>> 81176e51b3ca2eae90309d9e98297853ba620ba1
         } else if (e.getSource() == botonSalir) {
 
             int confirmacion = JOptionPane.showConfirmDialog(null,
@@ -135,10 +127,6 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
             ResultadosPaciente resultadosPaciente = new ResultadosPaciente();
             resultadosPaciente.setVisible(true);
-<<<<<<< HEAD
-
-=======
->>>>>>> 81176e51b3ca2eae90309d9e98297853ba620ba1
             this.dispose();
         }
 

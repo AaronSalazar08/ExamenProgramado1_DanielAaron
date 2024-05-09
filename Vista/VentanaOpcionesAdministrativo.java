@@ -37,7 +37,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         this.setTitle("Menú del Administrador");
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setSize(800, 600);
+        this.setSize(800, 400);
         setLocationRelativeTo(null);
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
         panelVentanaOpcionesAdministrativo.setBackground(new Color(209, 242, 235));
@@ -64,7 +64,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         }
 
         botonVolver = new JButton();
-        botonVolver.setBounds(40, 500, 65, 30);
+        botonVolver.setBounds(40, 300, 65, 30);
         botonVolver.setBackground(new Color(209, 242, 235));
         botonVolver.addActionListener(this);
         botonVolver.setOpaque(false);
@@ -77,7 +77,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         }
 
         botonEditar = new JButton();
-        botonEditar.setBounds(600, 450, 50, 50);
+        botonEditar.setBounds(550, 250, 50, 50);
         botonEditar.setForeground(new Color(209, 242, 235));
         botonEditar.addActionListener(this);
         botonEditar.setOpaque(false);
@@ -170,9 +170,42 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         if (e.getSource() == botonEditar) {
 
-            EditarPaciente editarPaciente = new EditarPaciente();
-            editarPaciente.setVisible(true);
-            this.dispose();
+            int filaSeleccionada = tablaPacientes.getSelectedRow();
+
+            if (tablaPacientes.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "La tabla está vacía");
+                return;
+            }
+
+            if (filaSeleccionada != -1) {
+
+                boolean filaVacia = true;
+                int conteoColumna = tablaPacientes.getColumnCount();
+
+                for (int columna = 0; columna < conteoColumna; columna++) {
+
+                    Object valor = tablaPacientes.getValueAt(filaSeleccionada, columna);
+                    if (valor != null && !valor.toString().trim().isEmpty()) {
+                        filaVacia = false;
+                        break;
+
+                    }
+
+                }
+
+                if (filaVacia) {
+
+                    JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
+                    return;
+                } else {
+                    EditarPaciente editarPaciente = new EditarPaciente();
+                    editarPaciente.setVisible(true);
+                    this.dispose();
+
+                }
+
+            }
+
         }
 
     }
