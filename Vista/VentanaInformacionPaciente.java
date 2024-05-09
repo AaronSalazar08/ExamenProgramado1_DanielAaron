@@ -30,8 +30,9 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
     public VentanaInformacionPaciente() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setTitle("Registro de Paciente");
         this.setLocationRelativeTo(null);
-        this.setSize(500, 600);
+        this.setSize(385, 560);
         this.setContentPane(panelInfoPaciente);
         panelInfoPaciente.setBackground(new Color(209, 242, 235));
         setLocationRelativeTo(null);
@@ -47,7 +48,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         // JButton
 
         botonRegistrar = new JButton("Registrar");
-        botonRegistrar.setBounds(320, 500, 150, 30);
+        botonRegistrar.setBounds(225, 465, 150, 30);
         botonRegistrar.setForeground(Color.BLACK);
         botonRegistrar.setBackground(new Color(31, 209, 185));
         botonRegistrar.setFont(fuenteBoton);
@@ -58,7 +59,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         botonRegistrar.setBorderPainted(false);
 
         botonCancelar = new JButton();
-        botonCancelar.setBounds(20, 510, 55, 30);
+        botonCancelar.setBounds(20, 465, 55, 30);
         botonCancelar.setForeground(Color.BLACK);
         botonCancelar.setBackground(new Color(31, 209, 185));
         botonCancelar.addActionListener(this);
@@ -73,7 +74,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         // JLabel
 
-        labelNombrePaciente = new JLabel("Nombre paciente:");
+        labelNombrePaciente = new JLabel("Nombre:");
         labelNombrePaciente.setBounds(20, 115, 350, 50);
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelNombrePaciente.setFont(fuente1);
@@ -106,18 +107,18 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         // JTexfield
 
         nombrePacienteTxt = new JTextField(" ");
-        nombrePacienteTxt.setBounds(230, 130, 130, 20);
+        nombrePacienteTxt.setBounds(185, 130, 130, 20);
 
         cedulaPacienteTxt = new JTextField(" ");
-        cedulaPacienteTxt.setBounds(220, 65, 150, 20);
+        cedulaPacienteTxt.setBounds(185, 65, 150, 20);
 
         EdadPacienteTxt = new JTextField(" ");
-        EdadPacienteTxt.setBounds(245, 195, 30, 20);
+        EdadPacienteTxt.setBounds(190, 195, 30, 20);
 
         // JComboBox
 
         comboTranstorno = new JComboBox();
-        comboTranstorno.setBounds(235, 330, 125, 45);
+        comboTranstorno.setBounds(195, 330, 125, 45);
         comboTranstorno.addItem("Depresión");
         comboTranstorno.addItem("Transtorno Obsesivo Compulsivo");
         comboTranstorno.addItem("Ansiedad");
@@ -126,10 +127,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         // JRadioButton
 
         botonMasculino = new JRadioButton("Masculino");
-        botonMasculino.setBounds(245, 240, 95, 35);
+        botonMasculino.setBounds(195, 240, 95, 35);
 
         botonFemenino = new JRadioButton("Femenino");
-        botonFemenino.setBounds(245, 270, 95, 35);
+        botonFemenino.setBounds(195, 270, 95, 35);
 
         ButtonGroup grupoBotones = new ButtonGroup();
         grupoBotones.add(botonMasculino);
@@ -166,11 +167,9 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         }
 
-<<<<<<< HEAD
 
         
-=======
->>>>>>> 9b71d50daaade5d3bdd142b9a315788f1e87fb2d
+
         if (e.getSource() == botonRegistrar) {
 
             String entradaNombrePaciente = nombrePacienteTxt.getText().trim();

@@ -19,6 +19,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
     public MenuPrimeraVista() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setTitle("Menú Principal");
         this.setLocationRelativeTo(null);
         this.setSize(600, 550);
         this.setContentPane(panelPrimeraVista);
@@ -109,11 +110,11 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             instanciaPaciente.setVisible(true);
             this.dispose();
 
-<<<<<<< HEAD
+
         
         if (e.getSource() == botonSalir){
 
-=======
+
         } else if (e.getSource() == botonSalir) {
 
             int confirmacion = JOptionPane.showConfirmDialog(null,
@@ -131,7 +132,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
 
             ResultadosPaciente resultadosPaciente = new ResultadosPaciente();
             resultadosPaciente.setVisible(true);
->>>>>>> 9b71d50daaade5d3bdd142b9a315788f1e87fb2d
+
             this.dispose();
         }
 
