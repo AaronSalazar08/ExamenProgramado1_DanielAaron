@@ -167,6 +167,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 81176e51b3ca2eae90309d9e98297853ba620ba1
 
         
 

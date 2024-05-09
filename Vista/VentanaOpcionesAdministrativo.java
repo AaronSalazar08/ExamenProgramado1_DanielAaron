@@ -51,7 +51,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         // JButton
         botonEliminar = new JButton();
-        botonEliminar.setBounds(700, 450, 50, 50);
+        botonEliminar.setBounds(650, 250, 50, 50);
         botonEliminar.setForeground(new Color(209, 242, 235));
         botonEliminar.addActionListener(this);
         botonEliminar.setOpaque(false);
@@ -90,7 +90,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         }
 
         // JSCROLLPANE
-        scroll.setBounds(40, 30, 700, 370);
+        scroll.setBounds(40, 30, 700, 200);
 
         // AGREGAR ELEMENTOS AL PANEL
 
@@ -170,48 +170,9 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         if (e.getSource() == botonEditar) {
 
-            int filaSeleccionada = tablaPacientes.getSelectedRow();
-
-            if (tablaPacientes.getRowCount() == 0) {
-                JOptionPane.showMessageDialog(null, "La tabla está vacía");
-                return;
-            }
-
-            if (filaSeleccionada != -1) {
-
-                boolean filaVacia = true;
-                int conteoColumna = tablaPacientes.getColumnCount();
-
-                for (int columna = 0; columna < conteoColumna; columna++) {
-
-                    Object valor = tablaPacientes.getValueAt(filaSeleccionada, columna);
-                    if (valor != null && !valor.toString().trim().isEmpty()) {
-                        filaVacia = false;
-                        break;
-
-                    }
-
-                }
-
-                if (filaVacia) {
-
-                    JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
-                    return;
-                }
-                int confirmacion = JOptionPane.showConfirmDialog(null,
-                        "¿Estás seguro de que quieres editar este paciente? ",
-                        "Confirmar",
-                        JOptionPane.YES_NO_OPTION);
-
-                if (confirmacion == JOptionPane.YES_OPTION) {
-
-                    Principal.listaPacientes.remove(filaSeleccionada);
-
-                    modeloTabla.removeRow(filaSeleccionada);
-                }
-
-            }
-
+            EditarPaciente editarPaciente = new EditarPaciente();
+            editarPaciente.setVisible(true);
+            this.dispose();
         }
 
     }
