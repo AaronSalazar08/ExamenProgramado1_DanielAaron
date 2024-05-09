@@ -166,6 +166,11 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         }
 
+<<<<<<< HEAD
+
+        
+=======
+>>>>>>> 9b71d50daaade5d3bdd142b9a315788f1e87fb2d
         if (e.getSource() == botonRegistrar) {
 
             String entradaNombrePaciente = nombrePacienteTxt.getText().trim();
@@ -192,6 +197,8 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
                         return;
                     }
+
+                    
 
                     if (botonMasculino.isSelected()) {
 
