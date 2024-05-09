@@ -203,19 +203,29 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
                     JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
                     return;
                 } else {
-                    for (Paciente paciente : Principal.listaPacientes){
+                    Paciente pacienteSeleccionado = Principal.listaPacientes.get(filaSeleccionada);
 
-                        String edad = String.valueOf(paciente.getEdad());
-                        Controlador.Metodos.EditarPacienteInstancia();
-                        Metodos.editarPaciente.cedulaPacienteTxt.setText(paciente.getCedula());
-                        Metodos.editarPaciente.nombrePacienteTxt.setText(paciente.getNombre());
-                        Metodos.editarPaciente.EdadPacienteTxt.setText(edad);
-
-                        EditarPaciente editarPaciente = new EditarPaciente();
-                        editarPaciente.setVisible(true);
-                        this.dispose();
-
+                    // Crear una instancia de la ventana de edición
+                    EditarPaciente editarPaciente = new EditarPaciente();
+                    editarPaciente.setVisible(true);
+                    
+                    // Asignar los datos del paciente seleccionado a los componentes de la ventana de edición
+                    editarPaciente.cedulaPacienteTxt.setText(pacienteSeleccionado.getCedula());
+                    editarPaciente.nombrePacienteTxt.setText(pacienteSeleccionado.getNombre());
+                    editarPaciente.EdadPacienteTxt.setText(String.valueOf(pacienteSeleccionado.getEdad()));
+                    
+                    // Si el paciente seleccionado es masculino o femenino, establece el botón de selección correspondiente
+                    if (pacienteSeleccionado.getSexo().equalsIgnoreCase("Masculino")) {
+                        editarPaciente.botonMasculino.setSelected(true);
+                    } else {
+                        editarPaciente.botonFemenino.setSelected(true);
                     }
+                    
+                    // Asignar el trastorno seleccionado al combo box de la ventana de edición
+                    editarPaciente.comboTranstorno.setSelectedItem(pacienteSeleccionado.getTranstorno());
+                    
+                    // Cerrar la ventana actual
+                    this.dispose();
                    
 
                 }

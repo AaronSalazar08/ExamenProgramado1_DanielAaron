@@ -166,6 +166,7 @@ public class EditarPaciente extends JFrame implements ActionListener {
         String transtornoSeleccionado = (String) comboTranstorno.getSelectedItem();
         boolean masculinoSeleccionado = botonMasculino.isSelected();
         boolean femeninoSeleccionado = botonFemenino.isSelected();
+       
 
         if (e.getSource() == botonVolver) {
 
@@ -217,8 +218,9 @@ public class EditarPaciente extends JFrame implements ActionListener {
 
                         String sexoFemenino = botonFemenino.isSelected() ? "Masculino" : "Masculino";
 
-                        Principal.listaPacientes.add(new Paciente(entradaNombre, entradaCedula, transtornoSeleccionado,
-                                sexoFemenino, edadPaciente));
+                        
+                
+                        JOptionPane.showMessageDialog(null, "Paciente editado con éxito.");
 
                         JOptionPane.showMessageDialog(null, "Paciente editado");
 
