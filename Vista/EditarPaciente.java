@@ -124,7 +124,7 @@ public class EditarPaciente extends JFrame implements ActionListener {
 
 
         botonAceptar = new JButton();
-        botonAceptar.setBounds(150, 250, 85, 40);
+        botonAceptar.setBounds(280, 290, 85, 40);
         botonAceptar.setBackground(new Color(209, 242, 235));
         botonAceptar.addActionListener(this);
         botonAceptar.setOpaque(false);
