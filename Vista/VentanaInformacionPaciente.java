@@ -26,6 +26,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
     public static JTextField EdadPacienteTxt;
     public static JComboBox comboTranstorno;
     public static JRadioButton botonMasculino, botonFemenino;
+    Font fuenteBoton = new Font("Century Schoolbook", Font.PLAIN, 20);
 
     public VentanaInformacionPaciente() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -46,9 +47,11 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         // JButton
 
         botonRegistrar = new JButton("Registrar");
-        botonRegistrar.setBounds(320, 510, 150, 30);
+        botonRegistrar.setBounds(320, 500, 150, 30);
         botonRegistrar.setForeground(Color.BLACK);
         botonRegistrar.setBackground(new Color(31, 209, 185));
+        botonRegistrar.setFont(fuenteBoton);
+       
         botonRegistrar.addActionListener(this);
         botonRegistrar.setOpaque(false);
         botonRegistrar.setContentAreaFilled(false);
@@ -112,7 +115,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         cedulaPacienteTxt.setBounds(220, 65, 150, 20);
 
         EdadPacienteTxt = new JTextField(" ");
-        EdadPacienteTxt.setBounds(245, 195, 100, 20);
+        EdadPacienteTxt.setBounds(245, 195, 30, 20);
 
         // JComboBox
 
