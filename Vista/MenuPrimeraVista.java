@@ -122,6 +122,13 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             }
 
         }
+        if(e.getSource()==botonExpendiente){
+
+            ResultadosPaciente resultadosPaciente = new ResultadosPaciente();
+            resultadosPaciente.setVisible(true);
+            this.dispose();
+        }
+
 
         
 

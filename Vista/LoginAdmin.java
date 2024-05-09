@@ -38,7 +38,7 @@ public class LoginAdmin extends JFrame implements ActionListener {
 
     public LoginAdmin() {
 
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Inicio Sesión");
         this.setLocationRelativeTo(null);
         this.setSize(300, 300);

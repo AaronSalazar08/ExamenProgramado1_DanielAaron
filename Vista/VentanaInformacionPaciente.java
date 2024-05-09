@@ -57,11 +57,12 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         botonCancelar = new JButton();
         botonCancelar.setBounds(20, 510, 55, 30);
         botonCancelar.setForeground(Color.BLACK);
+        botonCancelar.setBackground(new Color(31, 209, 185));
         botonCancelar.addActionListener(this);
         botonCancelar.setOpaque(false);
         botonCancelar.setContentAreaFilled(false);
         botonCancelar.setBorderPainted(false);
-        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver3.png");
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonCancelar.setIcon(new ImageIcon(imagenVolverAjustada));
@@ -201,8 +202,8 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
 
-                        ResultadosPaciente resultados = new ResultadosPaciente();
-                        resultados.setVisible(true);
+                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                        menuPrimeraVista.setVisible(true);
                         this.dispose();
 
                     }
@@ -215,8 +216,8 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
 
-                        ResultadosPaciente resultados = new ResultadosPaciente();
-                        resultados.setVisible(true);
+                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                        menuPrimeraVista.setVisible(true);
                         this.dispose();
                     }
                 } catch (NumberFormatException ex) {
