@@ -80,11 +80,9 @@ public class LoginAdmin extends JFrame implements ActionListener {
         botonRegistrar = new JButton("Continuar");
         botonRegistrar.setBounds(95, 180, 100, 30);
         botonRegistrar.addActionListener(this);
-        botonRegistrar.setBackground(new Color(209, 242, 235));
+        botonRegistrar.setBackground(new Color(255, 255, 255));
         botonRegistrar.setFont(fuenteBoton);
-        botonRegistrar.setOpaque(false);
-        botonRegistrar.setContentAreaFilled(false);
-        botonRegistrar.setBorderPainted(false);
+       
         
 
         botonVolver = new JButton();
