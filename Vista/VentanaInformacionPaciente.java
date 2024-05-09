@@ -51,7 +51,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         botonRegistrar.setForeground(Color.BLACK);
         botonRegistrar.setBackground(new Color(31, 209, 185));
         botonRegistrar.setFont(fuenteBoton);
-       
+
         botonRegistrar.addActionListener(this);
         botonRegistrar.setOpaque(false);
         botonRegistrar.setContentAreaFilled(false);
@@ -78,21 +78,18 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelNombrePaciente.setFont(fuente1);
         labelNombrePaciente.setForeground(new Color(23, 32, 42));
-        
 
         labelCedula = new JLabel("Cédula:");
         labelCedula.setBounds(20, 40, 400, 70);
         Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelCedula.setFont(fuente2);
         labelCedula.setForeground(new Color(23, 32, 42));
-        
 
         labelEdad = new JLabel("Edad:");
         labelEdad.setBounds(20, 170, 400, 70);
         Font fuente3 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelEdad.setFont(fuente3);
         labelEdad.setForeground(new Color(23, 32, 42));
-        
 
         labelTranstorno = new JLabel("Tipo de transtorno:");
         labelTranstorno.setBounds(20, 310, 400, 70);
