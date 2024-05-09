@@ -1,6 +1,7 @@
 package Vista;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Font;
+import java.awt.Image;
 
 public class VentanaInformacionPaciente extends JFrame implements ActionListener {
 
@@ -24,13 +26,14 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
     public static JTextField EdadPacienteTxt;
     public static JComboBox comboTranstorno;
     public static JRadioButton botonMasculino, botonFemenino;
+    Font fuenteBoton = new Font("Century Schoolbook", Font.PLAIN, 20);
 
     public VentanaInformacionPaciente() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setSize(500, 600);
         this.setContentPane(panelInfoPaciente);
-        panelInfoPaciente.setBackground(new Color(31, 209, 185));
+        panelInfoPaciente.setBackground(new Color(209, 242, 235));
         setLocationRelativeTo(null);
         panelInfoPaciente.setLayout(null);
 
@@ -44,14 +47,29 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         // JButton
 
         botonRegistrar = new JButton("Registrar");
-        botonRegistrar.setBounds(320, 510, 150, 30);
+        botonRegistrar.setBounds(320, 500, 150, 30);
         botonRegistrar.setForeground(Color.BLACK);
-        botonRegistrar.addActionListener(this);
+        botonRegistrar.setBackground(new Color(31, 209, 185));
+        botonRegistrar.setFont(fuenteBoton);
 
-        botonCancelar = new JButton("Cancelar");
-        botonCancelar.setBounds(20, 510, 150, 30);
+        botonRegistrar.addActionListener(this);
+        botonRegistrar.setOpaque(false);
+        botonRegistrar.setContentAreaFilled(false);
+        botonRegistrar.setBorderPainted(false);
+
+        botonCancelar = new JButton();
+        botonCancelar.setBounds(20, 510, 55, 30);
         botonCancelar.setForeground(Color.BLACK);
+        botonCancelar.setBackground(new Color(31, 209, 185));
         botonCancelar.addActionListener(this);
+        botonCancelar.setOpaque(false);
+        botonCancelar.setContentAreaFilled(false);
+        botonCancelar.setBorderPainted(false);
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
+        if (iconoVolver != null && iconoVolver.getImage() != null) {
+            Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
+            botonCancelar.setIcon(new ImageIcon(imagenVolverAjustada));
+        }
 
         // JLabel
 
@@ -59,48 +77,42 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         labelNombrePaciente.setBounds(20, 115, 350, 50);
         Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelNombrePaciente.setFont(fuente1);
-        labelNombrePaciente.setForeground(new Color(81, 33, 176));
-        labelNombrePaciente.setForeground(new Color(255, 255, 204));
+        labelNombrePaciente.setForeground(new Color(23, 32, 42));
 
         labelCedula = new JLabel("Cédula:");
         labelCedula.setBounds(20, 40, 400, 70);
         Font fuente2 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelCedula.setFont(fuente2);
-        labelCedula.setForeground(new Color(81, 33, 176));
-        labelCedula.setForeground(new Color(255, 255, 204));
+        labelCedula.setForeground(new Color(23, 32, 42));
 
         labelEdad = new JLabel("Edad:");
         labelEdad.setBounds(20, 170, 400, 70);
         Font fuente3 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelEdad.setFont(fuente3);
-        labelEdad.setForeground(new Color(81, 33, 176));
-        labelEdad.setForeground(new Color(255, 255, 204));
+        labelEdad.setForeground(new Color(23, 32, 42));
 
-        labelTranstorno = new JLabel("tipo de transtorno:");
+        labelTranstorno = new JLabel("Tipo de transtorno:");
         labelTranstorno.setBounds(20, 310, 400, 70);
         Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelTranstorno.setFont(fuente4);
-        labelTranstorno.setForeground(new Color(81, 33, 176));
-        labelTranstorno.setForeground(new Color(255, 255, 204));
+        labelTranstorno.setForeground(new Color(23, 32, 42));
 
         labelSexo = new JLabel("Sexo:");
         labelSexo.setBounds(20, 240, 400, 70);
         Font fuente5 = new Font("Century Schoolbook", Font.PLAIN, 18);
         labelSexo.setFont(fuente5);
-        labelSexo.setForeground(new Color(81, 33, 176));
-        labelSexo.setForeground(new Color(255, 255, 204));
+        labelSexo.setForeground(new Color(23, 32, 42));
 
         // JTexfield
 
         nombrePacienteTxt = new JTextField(" ");
         nombrePacienteTxt.setBounds(230, 130, 130, 20);
 
-
         cedulaPacienteTxt = new JTextField(" ");
         cedulaPacienteTxt.setBounds(220, 65, 150, 20);
 
         EdadPacienteTxt = new JTextField(" ");
-        EdadPacienteTxt.setBounds(245, 195, 100, 20);
+        EdadPacienteTxt.setBounds(245, 195, 30, 20);
 
         // JComboBox
 
@@ -141,13 +153,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         panelInfoPaciente.add(botonMasculino);
         panelInfoPaciente.add(botonFemenino);
-        
 
     }
 
     public void actionPerformed(ActionEvent e) {
-
-       
 
         if (e.getSource() == botonCancelar) {
             JOptionPane.showMessageDialog(null, "Regresando al menú principal");
@@ -157,8 +166,11 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         }
 
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> 9b71d50daaade5d3bdd142b9a315788f1e87fb2d
         if (e.getSource() == botonRegistrar) {
 
             String entradaNombrePaciente = nombrePacienteTxt.getText().trim();
@@ -175,33 +187,30 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
             } else if (!entradaNombrePaciente.isEmpty() && !entradaEdadPaciente.isEmpty()
                     && !entradaCedulaPaciente.isEmpty()) {
 
-                        int edadPaciente; 
+                int edadPaciente;
                 try {
 
                     edadPaciente = Integer.parseInt(entradaEdadPaciente);
 
                     if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
-                        
+
                         JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
-                        return; 
+                        return;
                     }
 
                     
 
                     if (botonMasculino.isSelected()) {
 
-                       
                         String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
 
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
                                 transtornoSeleccionado, sexoMasculino, edadPaciente);
 
-
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
 
-
-                        ResultadosPaciente resultados = new ResultadosPaciente();
-                        resultados.setVisible(true);
+                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                        menuPrimeraVista.setVisible(true);
                         this.dispose();
 
                     }
@@ -211,11 +220,11 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         String sexoFemenino = botonMasculino.isSelected() ? "Femenino" : "Femenino";
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
                                 transtornoSeleccionado, sexoFemenino, edadPaciente);
-                       
+
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente \n Mostrando Resultados");
 
-                        ResultadosPaciente resultados = new ResultadosPaciente();
-                        resultados.setVisible(true);
+                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                        menuPrimeraVista.setVisible(true);
                         this.dispose();
                     }
                 } catch (NumberFormatException ex) {

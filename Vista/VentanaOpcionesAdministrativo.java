@@ -16,10 +16,10 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     // Creacion de elementos para la ventanas
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
-    private JButton botonEliminar, botonVolver;
+    private JButton botonEliminar, botonVolver, botonEditar;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
 
-    DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 5) {
+    DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 10000) {
 
         @Override
         public boolean isCellEditable(int row, int column) {
@@ -40,7 +40,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         this.setSize(800, 600);
         setLocationRelativeTo(null);
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
-        panelVentanaOpcionesAdministrativo.setBackground(new Color(119, 176, 178));
+        panelVentanaOpcionesAdministrativo.setBackground(new Color(209, 242, 235));
         panelVentanaOpcionesAdministrativo.setLayout(null);
         Elementos();// llamada al metodo de elementos para agregar los elementos del panel a la
                     // interfaz grafica
@@ -52,9 +52,12 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         // JButton
         botonEliminar = new JButton();
         botonEliminar.setBounds(700, 450, 50, 50);
-        botonEliminar.setForeground(new Color(27, 27, 30));
+        botonEliminar.setForeground(new Color(209, 242, 235));
         botonEliminar.addActionListener(this);
-        ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/EliminarBoton (1).png");
+        botonEliminar.setOpaque(false);
+        botonEliminar.setContentAreaFilled(false);
+        botonEliminar.setBorderPainted(false);
+        ImageIcon iconoEliminar = new ImageIcon("Vista/Imagenes/Eliminar2.png");
         if (iconoEliminar != null && iconoEliminar.getImage() != null) {
             Image imagenEliminarAjustada = iconoEliminar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
             botonEliminar.setIcon(new ImageIcon(imagenEliminarAjustada));
@@ -62,12 +65,28 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         botonVolver = new JButton();
         botonVolver.setBounds(40, 500, 65, 30);
-        botonVolver.setBackground(new Color(119, 176, 178));
+        botonVolver.setBackground(new Color(209, 242, 235));
         botonVolver.addActionListener(this);
-        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver2.png");
+        botonVolver.setOpaque(false);
+        botonVolver.setContentAreaFilled(false);
+        botonVolver.setBorderPainted(false);
+        ImageIcon iconoVolver = new ImageIcon("Vista/Imagenes/volver4.png");
         if (iconoVolver != null && iconoVolver.getImage() != null) {
             Image imagenVolverAjustada = iconoVolver.getImage().getScaledInstance(55, 40, Image.SCALE_SMOOTH);
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
+        }
+
+        botonEditar = new JButton();
+        botonEditar.setBounds(600, 450, 50, 50);
+        botonEditar.setForeground(new Color(209, 242, 235));
+        botonEditar.addActionListener(this);
+        botonEditar.setOpaque(false);
+        botonEditar.setContentAreaFilled(false);
+        botonEditar.setBorderPainted(false);
+        ImageIcon iconoEditar = new ImageIcon("Vista/Imagenes/Editar1.png");
+        if (iconoEditar != null && iconoEditar.getImage() != null) {
+            Image imagenEditarAjustada = iconoEditar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
+            botonEditar.setIcon(new ImageIcon(imagenEditarAjustada));
         }
 
         // JSCROLLPANE
@@ -77,6 +96,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         panelVentanaOpcionesAdministrativo.add(botonVolver);
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
+        panelVentanaOpcionesAdministrativo.add(botonEditar);
         panelVentanaOpcionesAdministrativo.add(scroll);
 
         for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
@@ -102,14 +122,36 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         }
 
-        
-         
-          if (e.getSource() == botonEliminar) {
+        if (e.getSource() == botonEliminar) {
 
             int filaSeleccionada = tablaPacientes.getSelectedRow();
 
+            if (tablaPacientes.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "La tabla está vacía");
+                return;
+            }
+
             if (filaSeleccionada != -1) {
 
+                boolean filaVacia = true;
+                int conteoColumna = tablaPacientes.getColumnCount();
+
+                for (int columna = 0; columna < conteoColumna; columna++) {
+
+                    Object valor = tablaPacientes.getValueAt(filaSeleccionada, columna);
+                    if (valor != null && !valor.toString().trim().isEmpty()) {
+                        filaVacia = false;
+                        break;
+
+                    }
+
+                }
+
+                if (filaVacia) {
+
+                    JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
+                    return;
+                }
                 int confirmacion = JOptionPane.showConfirmDialog(null,
                         "¿Estás seguro de que quieres eliminar este paciente? ",
                         "Confirmar",
@@ -125,8 +167,52 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
             }
 
         }
-         
-       
+
+        if (e.getSource() == botonEditar) {
+
+            int filaSeleccionada = tablaPacientes.getSelectedRow();
+
+            if (tablaPacientes.getRowCount() == 0) {
+                JOptionPane.showMessageDialog(null, "La tabla está vacía");
+                return;
+            }
+
+            if (filaSeleccionada != -1) {
+
+                boolean filaVacia = true;
+                int conteoColumna = tablaPacientes.getColumnCount();
+
+                for (int columna = 0; columna < conteoColumna; columna++) {
+
+                    Object valor = tablaPacientes.getValueAt(filaSeleccionada, columna);
+                    if (valor != null && !valor.toString().trim().isEmpty()) {
+                        filaVacia = false;
+                        break;
+
+                    }
+
+                }
+
+                if (filaVacia) {
+
+                    JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
+                    return;
+                }
+                int confirmacion = JOptionPane.showConfirmDialog(null,
+                        "¿Estás seguro de que quieres editar este paciente? ",
+                        "Confirmar",
+                        JOptionPane.YES_NO_OPTION);
+
+                if (confirmacion == JOptionPane.YES_OPTION) {
+
+                    Principal.listaPacientes.remove(filaSeleccionada);
+
+                    modeloTabla.removeRow(filaSeleccionada);
+                }
+
+            }
+
+        }
 
     }
 
