@@ -127,12 +127,12 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         comboTranstorno.addItem("Depresión");
         comboTranstorno.addItem("Obsesivo Compulsivo");
         comboTranstorno.addItem("Ansiedad");
-        comboTranstorno.addItem("Autista");
-        comboTranstorno.addItem("Alimentario");
-        comboTranstorno.addItem("Estrés");
-        comboTranstorno.addItem("Ezquizofrenia");
-        comboTranstorno.setToolTipText("Seleccionde el tipo de transtorno del paciente");
-
+        comboTranstorno.addItem("Deficit atencional");
+        comboTranstorno.addItem("Transtorno");
+        comboTranstorno.addItem("Transtorno1");
+        comboTranstorno.addItem("Transtorno1");
+        comboTranstorno.addItem("Transtorno1");
+        comboTranstorno.addItem("Transtorno1");
 
         // JRadioButton
 
