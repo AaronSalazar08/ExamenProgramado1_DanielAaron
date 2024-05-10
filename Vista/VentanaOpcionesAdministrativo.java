@@ -99,11 +99,6 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         panelVentanaOpcionesAdministrativo.add(botonVolver);
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
         panelVentanaOpcionesAdministrativo.add(scroll);
-<<<<<<< HEAD
-
-        
-=======
->>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
 
         for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
 

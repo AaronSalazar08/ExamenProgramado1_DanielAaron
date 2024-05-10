@@ -62,30 +62,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
     public void Elementos() {
 
-<<<<<<< HEAD
-        //Inicializando cosntantes
-
-        // JTextArea
-        areaTratamiento = new JTextArea(" ");
-        areaTratamiento.setBounds(15, 300, 350, 300);
-        areaTratamiento.setEditable(false);
-
-        areaApoyo = new JTextArea(" ");
-        areaApoyo.setBounds(420, 300, 350, 300);
-        areaApoyo.setEditable(false);
-
-        // JLabel
-        tituloApoyo = new JLabel("Apoyo:");
-        tituloApoyo.setBounds(440, 230, 400, 70);
-        tituloApoyo.setFont(fuenteLabel);
-
-        tituloTratamiento = new JLabel("Tratamiento:");
-        tituloTratamiento.setBounds(15, 230, 400, 70);
-        tituloTratamiento.setFont(fuenteLabel);
-
-=======
     
->>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
         cedula_lb = new JLabel("Cédula: ");
         cedula_lb.setBounds(30, 70, 400, 70);
         cedula_lb.setFont(fuenteLabel);
@@ -127,15 +104,6 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
         scroll.setBounds(30, 170, 700, 50);
 
-<<<<<<< HEAD
-        //Agregar constantes al panel
-
-        panelResultado.add(areaTratamiento);
-        panelResultado.add(areaApoyo);
-        panelResultado.add(tituloApoyo);
-        panelResultado.add(tituloTratamiento);
-=======
->>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
         panelResultado.add(botonVolver);
         panelResultado.add(botonBuscar);
         panelResultado.add(cedula_txt);
