@@ -28,10 +28,6 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
     public JLabel cedula_lb;
     public JTextField cedula_txt;
-    public JTextArea areaTratamiento;
-    public JTextArea areaApoyo;
-    public JLabel tituloApoyo;
-    public JLabel tituloTratamiento;
     public JButton botonVolver;
     public JButton botonBuscar;
     Font fuenteBoton = new Font("Century Schoolbook", Font.PLAIN, 20);
@@ -52,7 +48,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setSize(800, 800);
+        this.setSize(800, 400);
         this.setContentPane(panelResultado);
         panelResultado.setBackground(new Color(209, 242, 235));
         setLocationRelativeTo(null);
@@ -63,24 +59,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
     public void Elementos() {
 
-        // JTextArea
-        areaTratamiento = new JTextArea(" ");
-        areaTratamiento.setBounds(15, 300, 350, 300);
-        areaTratamiento.setEditable(false);
-
-        areaApoyo = new JTextArea(" ");
-        areaApoyo.setBounds(420, 300, 350, 300);
-        areaApoyo.setEditable(false);
-
-        // JLabel
-        tituloApoyo = new JLabel("Apoyo:");
-        tituloApoyo.setBounds(440, 230, 400, 70);
-        tituloApoyo.setFont(fuenteLabel);
-
-        tituloTratamiento = new JLabel("Tratamiento:");
-        tituloTratamiento.setBounds(15, 230, 400, 70);
-        tituloTratamiento.setFont(fuenteLabel);
-
+    
         cedula_lb = new JLabel("Cédula: ");
         cedula_lb.setBounds(30, 70, 400, 70);
         cedula_lb.setFont(fuenteLabel);
@@ -93,7 +72,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
         // JButton
         botonVolver = new JButton();
-        botonVolver.setBounds(40, 700, 65, 30);
+        botonVolver.setBounds(40, 300, 65, 30);
         botonVolver.setBackground(new Color(209, 242, 235));
         botonVolver.addActionListener(this);
         botonVolver.setOpaque(false);
@@ -122,10 +101,6 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
         scroll.setBounds(30, 170, 700, 50);
 
-        panelResultado.add(areaTratamiento);
-        panelResultado.add(areaApoyo);
-        panelResultado.add(tituloApoyo);
-        panelResultado.add(tituloTratamiento);
         panelResultado.add(botonVolver);
         panelResultado.add(botonBuscar);
         panelResultado.add(cedula_txt);
@@ -139,7 +114,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
         // Ciclo if en caso de que se seleccione la opcion "Administrativo"
 
         if (e.getSource() == botonVolver) {
-            JOptionPane.showMessageDialog(null, "Volviendo al Menú Principal");
+           
             MenuPrimeraVista instancPrimeraVista = new MenuPrimeraVista();
             instancPrimeraVista.setVisible(true);
             this.dispose();
@@ -148,32 +123,43 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
         if (e.getSource() == botonBuscar) {
 
-            boolean empleadoEncontrado = true;
-            String busqueda = cedula_txt.getText();
+            
+            try {
+                String busqueda = cedula_txt.getText();
 
-            for (Paciente buscado : Principal.listaPacientes) {
+                for (Paciente buscado : Principal.listaPacientes) {
 
-                if (buscado.getCedula().equals(busqueda)) {
-
-                    JOptionPane.showMessageDialog(null, "Paciente encontrado");
-                    for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
-
-                        Paciente paciente = Principal.listaPacientes.get(contador);
-                        tablaPacientes.setValueAt(paciente.getNombre(), contador, 0);
-                        tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
-                        tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
-                        tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
-                        tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+                    
+    
+                    if (buscado.getCedula().equals(busqueda)) {
+    
+                        JOptionPane.showMessageDialog(null, "Paciente encontrado");
+                        for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
+    
+                            Paciente paciente = Principal.listaPacientes.get(contador);
+                            tablaPacientes.setValueAt(paciente.getNombre(), contador, 0);
+                            tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
+                            tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
+                            tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
+                            tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+                        }
+    
+                    } else {
+    
+                        JOptionPane.showMessageDialog(null, "Paciente no encontrado");
+    
                     }
 
-                } else {
-
-                    JOptionPane.showMessageDialog(null, "Paciente no encontrado");
-
+                  
                 }
+    
+
+            }catch (Exception ex){
+
+                JOptionPane.showMessageDialog(null, " Error");
 
             }
-
+           
         }
 
     }

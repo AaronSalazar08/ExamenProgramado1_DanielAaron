@@ -16,6 +16,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
     public JButton botonAdministrativo, botonPaciente, botonSalir, botonExpendiente;
     public JLabel fraseLabel, tituloLabel, labelDescripcion;
     Font fuenteFrase = new Font("", Font.PLAIN, 16);
+    Font fuenteBoton = new Font("Century Schoolbook", Font.PLAIN, 16);
 
     public MenuPrimeraVista() {
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -59,6 +60,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonAdministrativo.addActionListener(this);
         botonAdministrativo.setBackground(new Color(255, 255, 255));
         botonAdministrativo.setToolTipText("Apartado para acciones adminstrativas");
+        botonAdministrativo.setFont(fuenteBoton);
        // botonAdministrativo.setBorderPainted(false);
 
         botonPaciente = new JButton("Registrar Paciente");
@@ -67,6 +69,8 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonPaciente.addActionListener(this);
         botonPaciente.setBackground(new Color(255, 255, 255));
         botonPaciente.setToolTipText("Registro de datos del paciente");
+        botonPaciente.setBounds(185, 180, 200, 30);
+        botonPaciente.setFont(fuenteBoton);
         //botonPaciente.setBorderPainted(false);
 
         botonExpendiente = new JButton("Expendiente Medico");
@@ -75,6 +79,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonExpendiente.addActionListener(this);
         botonExpendiente.setBackground(new Color(255, 255, 255));
         botonExpendiente.setToolTipText("Busqueda individual de expendientes de pacientes");
+        botonExpendiente.setFont(fuenteBoton);
        // botonExpendiente.setBorderPainted(false);
 
         botonSalir = new JButton("Salir del programa");
@@ -83,6 +88,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonSalir.addActionListener(this);
         botonSalir.setBackground(new Color(255, 255, 255));
         botonSalir.setToolTipText("Si presiona este boton sale del programa");
+        botonSalir.setFont(fuenteBoton);
         //botonSalir.setBorderPainted(false);
 
         // Agregar elementos al panel
