@@ -1,12 +1,12 @@
 package Controlador;
 
-import Modelo.Administrador;
+
 import Modelo.Paciente;
-import Vista.EditarPaciente;
 import Vista.ResultadosPaciente;
 
 public class Metodos {
 
+<<<<<<< HEAD
 
 
     public static EditarPaciente editarPaciente;
@@ -34,4 +34,12 @@ public class Metodos {
     }
 
 
+=======
+    public static void RegistrarPacientes(String nombre, String cedula, String sexo, int edad, String transtorno ) {
+
+        Principal.listaPacientes.add(new Paciente(nombre, cedula, sexo, edad, transtorno));
+
+    }
+
+>>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
 }

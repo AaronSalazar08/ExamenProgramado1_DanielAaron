@@ -2,57 +2,22 @@ package Modelo;
 
 public class Paciente extends Persona {
 
-    //DECLARACION DE ATRIBUTOS
-    protected String cedula;
-    protected String transtorno;
-    protected String sexo;
-    protected int edad;
+  protected String transtorno;
 
-    //CREACION DEL CONSTRUCTOR
-    public Paciente(String nombre, String cedula, String transtorno, String sexo, int edad) {
-        super(nombre);
-        this.cedula = cedula;
-        this.transtorno = transtorno;
-        this.sexo = sexo;
-        this.edad = edad;
-    }
+public Paciente(String nombre, String cedula, String sexo, int edad, String transtrorno) {
+    super(nombre, cedula, sexo, edad);
+    this.transtorno = transtrorno;
+}
 
-    //CREACION DE LOS METODOS GET Y SET
-    public String getCedula() {
-        return cedula;
-    }
+public String getTranstrorno() {
+    return transtorno;
+}
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
+public void setTranstrorno(String transtorno) {
+    this.transtorno = transtorno;
+}
 
-    public String getTranstorno() {
-        return transtorno;
-    }
 
-    public void setTranstorno(String transtorno) {
-        this.transtorno = transtorno;
-    }
 
-    public String getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-    
-    
-
-    
-    
 
 }

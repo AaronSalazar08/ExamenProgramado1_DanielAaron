@@ -18,6 +18,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
     public JButton botonAdministrativo, botonPaciente, botonSalir, botonExpendiente;
     public JLabel fraseLabel, tituloLabel, labelDescripcion;
     Font fuenteFrase = new Font("", Font.PLAIN, 16);
+    Font fuenteBoton = new Font("Century Schoolbook", Font.PLAIN, 16);
 
     public MenuPrimeraVista() {
          //Definiendo caracteristicas al JPanel
@@ -62,7 +63,12 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonAdministrativo.addActionListener(this);
         botonAdministrativo.setBackground(new Color(255, 255, 255));
         botonAdministrativo.setToolTipText("Apartado para acciones adminstrativas");
+<<<<<<< HEAD
       
+=======
+        botonAdministrativo.setFont(fuenteBoton);
+       // botonAdministrativo.setBorderPainted(false);
+>>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
 
         botonPaciente = new JButton("Registrar Paciente");
         botonPaciente.setBounds(185, 180, 200, 30);
@@ -70,7 +76,13 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonPaciente.addActionListener(this);
         botonPaciente.setBackground(new Color(255, 255, 255));
         botonPaciente.setToolTipText("Registro de datos del paciente");
+<<<<<<< HEAD
         
+=======
+        botonPaciente.setBounds(185, 180, 200, 30);
+        botonPaciente.setFont(fuenteBoton);
+        //botonPaciente.setBorderPainted(false);
+>>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
 
         botonExpendiente = new JButton("Expendiente Medico");
         botonExpendiente.setBounds(185, 220, 200, 30);
@@ -78,14 +90,25 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonExpendiente.addActionListener(this);
         botonExpendiente.setBackground(new Color(255, 255, 255));
         botonExpendiente.setToolTipText("Busqueda individual de expendientes de pacientes");
+<<<<<<< HEAD
        
+=======
+        botonExpendiente.setFont(fuenteBoton);
+       // botonExpendiente.setBorderPainted(false);
+
+>>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
         botonSalir = new JButton("Salir del programa");
         botonSalir.setBounds(185, 300, 200, 30);
         botonSalir.setForeground(Color.BLACK);
         botonSalir.addActionListener(this);
         botonSalir.setBackground(new Color(255, 255, 255));
         botonSalir.setToolTipText("Si presiona este boton sale del programa");
+<<<<<<< HEAD
        
+=======
+        botonSalir.setFont(fuenteBoton);
+        //botonSalir.setBorderPainted(false);
+>>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
 
         // Agregar constantes al panel
         panelPrimeraVista.add(tituloLabel);

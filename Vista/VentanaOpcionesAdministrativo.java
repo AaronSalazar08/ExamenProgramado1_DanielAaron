@@ -17,7 +17,8 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     // Declarando costantes 
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
-    private JButton botonEliminar, botonVolver, botonEditar;
+    private JButton botonEliminar, botonVolver;
+
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
 
 
@@ -89,20 +90,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
         }
 
-        botonEditar = new JButton();
-        botonEditar.setBounds(550, 250, 50, 50);
-        botonEditar.setForeground(new Color(209, 242, 235));
-        botonEditar.addActionListener(this);
-        botonEditar.setOpaque(false);
-        botonEditar.setContentAreaFilled(false);
-        botonEditar.setBorderPainted(false);
-        ImageIcon iconoEditar = new ImageIcon("Vista/Imagenes/Editar1.png");
-        botonEditar.setToolTipText("Selecciona un paciente y editalo presionando este boton");
-        if (iconoEditar != null && iconoEditar.getImage() != null) {
-            Image imagenEditarAjustada = iconoEditar.getImage().getScaledInstance(70, 50, Image.SCALE_SMOOTH);
-            botonEditar.setIcon(new ImageIcon(imagenEditarAjustada));
-        }
-
+      
         // JSCROLLPANE
         scroll.setBounds(40, 30, 700, 200);
 
@@ -110,10 +98,12 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         panelVentanaOpcionesAdministrativo.add(botonVolver);
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
-        panelVentanaOpcionesAdministrativo.add(botonEditar);
         panelVentanaOpcionesAdministrativo.add(scroll);
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> 4fe18118cd9d22c0ddf1be18548d28a11ca1cbc3
 
         for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
 
@@ -122,7 +112,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
             tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
             tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
             tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
-            tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+            tablaPacientes.setValueAt(paciente.getTranstrorno(), contador, 4);
         }
 
     }
@@ -180,7 +170,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
                     return;
                 }
                 int confirmacion = JOptionPane.showConfirmDialog(null,
-                        "¿Estás seguro de que quieres eliminar este paciente? ",
+                        "¿Estás seguro de que quieres eliminar al paciente seleccionado? ",
                         "Confirmar",
                         JOptionPane.YES_NO_OPTION);
 
@@ -189,67 +179,6 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
                     Principal.listaPacientes.remove(filaSeleccionada);
 
                     modeloTabla.removeRow(filaSeleccionada);
-                }
-
-            }
-
-        }
-
-        if (e.getSource() == botonEditar) {
-
-            int filaSeleccionada = tablaPacientes.getSelectedRow();
-
-            if (tablaPacientes.getRowCount() == 0) {
-                JOptionPane.showMessageDialog(null, "La tabla está vacía");
-                return;
-            }
-
-            if (filaSeleccionada != -1) {
-
-                boolean filaVacia = true;
-                int conteoColumna = tablaPacientes.getColumnCount();
-
-                for (int columna = 0; columna < conteoColumna; columna++) {
-                   
-                    Object valor = tablaPacientes.getValueAt(filaSeleccionada, columna);
-                    if (valor != null && !valor.toString().trim().isEmpty()) {
-                        filaVacia = false;
-                        break;
-
-                    }
-
-                }
-
-                if (filaVacia) {
-
-                    JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
-                    return;
-                } else {
-                    Paciente pacienteSeleccionado = Principal.listaPacientes.get(filaSeleccionada);
-
-                    // Crear una instancia de la ventana de edición
-                    EditarPaciente editarPaciente = new EditarPaciente();
-                    editarPaciente.setVisible(true);
-                    
-                    // Asignar los datos del paciente seleccionado a los componentes de la ventana de edición
-                    editarPaciente.cedulaPacienteTxt.setText(pacienteSeleccionado.getCedula());
-                    editarPaciente.nombrePacienteTxt.setText(pacienteSeleccionado.getNombre());
-                    editarPaciente.EdadPacienteTxt.setText(String.valueOf(pacienteSeleccionado.getEdad()));
-                    
-                    // Si el paciente seleccionado es masculino o femenino, establece el botón de selección correspondiente
-                    if (pacienteSeleccionado.getSexo().equalsIgnoreCase("Masculino")) {
-                        editarPaciente.botonMasculino.setSelected(true);
-                    } else {
-                        editarPaciente.botonFemenino.setSelected(true);
-                    }
-                    
-                    // Asignar el trastorno seleccionado al combo box de la ventana de edición
-                    editarPaciente.comboTranstorno.setSelectedItem(pacienteSeleccionado.getTranstorno());
-                    
-                    // Cerrar la ventana actual
-                    this.dispose();
-                   
-
                 }
 
             }
