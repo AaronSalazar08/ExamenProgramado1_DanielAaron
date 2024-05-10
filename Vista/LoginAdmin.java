@@ -23,6 +23,8 @@ import java.awt.Image;
 
 public class LoginAdmin extends JFrame implements ActionListener {
 
+    //Declarando constantes 
+
     JPanel panelRegistro = new JPanel();
 
     JLabel RegistroLabel;
@@ -38,6 +40,7 @@ public class LoginAdmin extends JFrame implements ActionListener {
 
     public LoginAdmin() {
 
+        //Definiendo caracteristicas al JPanel
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Inicio Sesión");
         this.setLocationRelativeTo(null);
@@ -84,9 +87,6 @@ public class LoginAdmin extends JFrame implements ActionListener {
         botonRegistrar.addActionListener(this);
         botonRegistrar.setBackground(new Color(255, 255, 255));
         botonRegistrar.setFont(fuenteBoton);
-        
-       
-        
 
         botonVolver = new JButton();
         botonVolver.setBounds(10, 220, 65, 30);
@@ -101,6 +101,8 @@ public class LoginAdmin extends JFrame implements ActionListener {
             botonVolver.setIcon(new ImageIcon(imagenVolverAjustada));
         }
 
+        //Añadir constantes al panel
+
         panelRegistro.add(labelAdmin);
         panelRegistro.add(labelContraseña);
         panelRegistro.add(nombreAdmin);
@@ -110,16 +112,22 @@ public class LoginAdmin extends JFrame implements ActionListener {
 
     }
 
+    //Metodo para la accion de los botones 
+
     public void actionPerformed(ActionEvent e) {
+        //Obtener los valores de los JTexfield por medio de variables locales 
 
         String entrada_texto1 = nombreAdmin.getText();
         char[] contrasena = areaContraseña.getPassword();
         String contrasenaString = new String(contrasena);
 
+        //Asignando credenciales para los cuentas administrarivas del programa 
         Map<String, String> credencialesValidas = new HashMap<>();
         credencialesValidas.put("Aaron", "123");
         credencialesValidas.put("Daniel", "456");
         credencialesValidas.put("Douglas", "789");
+
+        //Creando instancia para volver al menu principal 
 
         if (e.getSource() == botonVolver) {
 
@@ -128,7 +136,9 @@ public class LoginAdmin extends JFrame implements ActionListener {
             this.dispose();
 
         }
+        //metodo para para comprobar las credenciales del usuario administrativo 
 
+        //Ciclo if en caso de que se dejen los espacios vacíos
         if (e.getSource() == botonRegistrar) {
 
             if (entrada_texto1.isEmpty() || contrasenaString.isEmpty()) {
@@ -136,6 +146,7 @@ public class LoginAdmin extends JFrame implements ActionListener {
                 return;
             }
 
+            //ciclo if en caso de que las credenciales sean correctas 
             if (credencialesValidas.containsKey(entrada_texto1)
                     && credencialesValidas.get(entrada_texto1).equals(contrasenaString)) {
                 JOptionPane.showMessageDialog(this, "Bienvenido " + entrada_texto1);
@@ -143,6 +154,8 @@ public class LoginAdmin extends JFrame implements ActionListener {
              VentanaOpcionesAdministrativo ventanaOpcionesAdministrativo = new VentanaOpcionesAdministrativo();
              ventanaOpcionesAdministrativo.setVisible(true);
              this.dispose();
+
+             //Else en caso de que las credenciales sean incorrectas 
                 
             } else {
                 JOptionPane.showMessageDialog(this, "Credenciales incorrectas");

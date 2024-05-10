@@ -15,11 +15,13 @@ import Modelo.Paciente;
 
 public class VentanaOpcionesAdministrativo extends JFrame implements ActionListener {
 
-    // Creacion de elementos para la ventanas
+    // Declarando costantes 
     private JPanel panelVentanaOpcionesAdministrativo = new JPanel();
     private JButton botonEliminar, botonVolver, botonEditar;
     private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
 
+
+    //Creacion de la tabla para mostrar el registro de pacientes
     DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 10000) {
 
         @Override
@@ -34,7 +36,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     public VentanaOpcionesAdministrativo() {
 
-        // Ajustes para la ventana
+        //Definiendo caracteristicas al JPanel
         this.setTitle("Menú del Administrador");
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -43,6 +45,8 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         this.getContentPane().add(panelVentanaOpcionesAdministrativo);
         panelVentanaOpcionesAdministrativo.setBackground(new Color(209, 242, 235));
         panelVentanaOpcionesAdministrativo.setLayout(null);
+
+
         Elementos();// llamada al metodo de elementos para agregar los elementos del panel a la
                     // interfaz grafica
 
@@ -50,7 +54,12 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     public void Elementos() {
 
+     //Inicializando constantes para el JPanel
+
+
         // JButton
+
+        //Boton eliminar para eliminar pacientes
         botonEliminar = new JButton();
         botonEliminar.setBounds(650, 250, 50, 50);
         botonEliminar.setForeground(new Color(209, 242, 235));
@@ -65,6 +74,7 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
             botonEliminar.setIcon(new ImageIcon(imagenEliminarAjustada));
         }
 
+        //Boton para volver al menu principal 
         botonVolver = new JButton();
         botonVolver.setBounds(40, 300, 65, 30);
         botonVolver.setBackground(new Color(209, 242, 235));
@@ -96,12 +106,13 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
         // JSCROLLPANE
         scroll.setBounds(40, 30, 700, 200);
 
-        // AGREGAR ELEMENTOS AL PANEL
+        // AGREGAR CONSTANTES AL PANEL
 
         panelVentanaOpcionesAdministrativo.add(botonVolver);
         panelVentanaOpcionesAdministrativo.add(botonEliminar);
         panelVentanaOpcionesAdministrativo.add(botonEditar);
         panelVentanaOpcionesAdministrativo.add(scroll);
+
         
 
         for (int contador = 0; contador < Principal.listaPacientes.size(); contador++) {
@@ -116,11 +127,15 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
     }
 
+
+    //Metodo para la accion de los botones 
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == botonVolver) {
 
+            //Creacion de una instancia para regresar a la clase 
             MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
             menuPrimeraVista.setVisible(true);
             this.dispose();
@@ -129,14 +144,17 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
 
         if (e.getSource() == botonEliminar) {
 
+            //Ciclo if para poder eliminar los datos del paciente en la tabla
             int filaSeleccionada = tablaPacientes.getSelectedRow();
 
             if (tablaPacientes.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(null, "La tabla está vacía");
                 return;
             }
+            
 
             if (filaSeleccionada != -1) {
+                
 
                 boolean filaVacia = true;
                 int conteoColumna = tablaPacientes.getColumnCount();
@@ -151,8 +169,12 @@ public class VentanaOpcionesAdministrativo extends JFrame implements ActionListe
                     }
 
                 }
+                //Ciclo if 
 
                 if (filaVacia) {
+                    //Ciclo if para mostrar el estado de la tabla 
+                         //metodo para mostrar si una fila esta vacía 
+                             //metodo para eliminar un registro de un paciente 
 
                     JOptionPane.showMessageDialog(null, "La fila seleccionada está vacía");
                     return;

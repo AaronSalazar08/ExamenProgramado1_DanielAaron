@@ -26,6 +26,9 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
     public JPanel panelResultado = new JPanel();
 
+
+    //Declarando constantes
+
     public JLabel cedula_lb;
     public JTextField cedula_txt;
     public JTextArea areaTratamiento;
@@ -36,7 +39,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
     public JButton botonBuscar;
     Font fuenteBoton = new Font("Century Schoolbook", Font.PLAIN, 20);
     Font fuenteLabel = new Font("Century Schoolbook", Font.BOLD, 16);
-    private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };
+    private String[] cabecera = { "Nombre", "Cédula", "Edad", "Sexo", "Transtorno" };//Titulos a llevar el JTable
 
     DefaultTableModel modeloTabla = new DefaultTableModel(cabecera, 1) {
 
@@ -49,7 +52,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
     JScrollPane scroll = new JScrollPane(tablaPacientes);
 
     public ResultadosPaciente() {
-
+        //Definiendo caracteristicas al JPanel
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setSize(800, 800);
@@ -62,6 +65,8 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
     }
 
     public void Elementos() {
+
+        //Inicializando cosntantes
 
         // JTextArea
         areaTratamiento = new JTextArea(" ");
@@ -122,6 +127,8 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
         scroll.setBounds(30, 170, 700, 50);
 
+        //Agregar constantes al panel
+
         panelResultado.add(areaTratamiento);
         panelResultado.add(areaApoyo);
         panelResultado.add(tituloApoyo);
@@ -134,9 +141,11 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
 
     }
 
+    //Metodo para las acciones de los botones 
+
     public void actionPerformed(ActionEvent e) {
 
-        // Ciclo if en caso de que se seleccione la opcion "Administrativo"
+       //Creacion de instancia para regresar al menu principal 
 
         if (e.getSource() == botonVolver) {
             JOptionPane.showMessageDialog(null, "Volviendo al Menú Principal");
@@ -145,7 +154,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
             this.dispose();
 
         }
-
+        //Ciclo if para buscar el registro de un paciente en el JTable 
         if (e.getSource() == botonBuscar) {
 
             boolean empleadoEncontrado = true;

@@ -12,12 +12,15 @@ import java.awt.event.ActionListener;
 
 public class MenuPrimeraVista extends JFrame implements ActionListener {
 
+    //Declarando costantes 
+
     public JPanel panelPrimeraVista = new JPanel();
     public JButton botonAdministrativo, botonPaciente, botonSalir, botonExpendiente;
     public JLabel fraseLabel, tituloLabel, labelDescripcion;
     Font fuenteFrase = new Font("", Font.PLAIN, 16);
 
     public MenuPrimeraVista() {
+         //Definiendo caracteristicas al JPanel
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Menú Principal");
         this.setLocationRelativeTo(null);
@@ -31,7 +34,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
     }
 
     public void Elementos() {
-        // Creación de Elementos
+        // Inicializando constantes 
 
         // JLabel
         tituloLabel = new JLabel("Centro de Apoyo Solís Salazar");
@@ -59,7 +62,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonAdministrativo.addActionListener(this);
         botonAdministrativo.setBackground(new Color(255, 255, 255));
         botonAdministrativo.setToolTipText("Apartado para acciones adminstrativas");
-       // botonAdministrativo.setBorderPainted(false);
+      
 
         botonPaciente = new JButton("Registrar Paciente");
         botonPaciente.setBounds(185, 180, 200, 30);
@@ -67,7 +70,7 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonPaciente.addActionListener(this);
         botonPaciente.setBackground(new Color(255, 255, 255));
         botonPaciente.setToolTipText("Registro de datos del paciente");
-        //botonPaciente.setBorderPainted(false);
+        
 
         botonExpendiente = new JButton("Expendiente Medico");
         botonExpendiente.setBounds(185, 220, 200, 30);
@@ -75,17 +78,16 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         botonExpendiente.addActionListener(this);
         botonExpendiente.setBackground(new Color(255, 255, 255));
         botonExpendiente.setToolTipText("Busqueda individual de expendientes de pacientes");
-       // botonExpendiente.setBorderPainted(false);
-
+       
         botonSalir = new JButton("Salir del programa");
         botonSalir.setBounds(185, 300, 200, 30);
         botonSalir.setForeground(Color.BLACK);
         botonSalir.addActionListener(this);
         botonSalir.setBackground(new Color(255, 255, 255));
         botonSalir.setToolTipText("Si presiona este boton sale del programa");
-        //botonSalir.setBorderPainted(false);
+       
 
-        // Agregar elementos al panel
+        // Agregar constantes al panel
         panelPrimeraVista.add(tituloLabel);
         panelPrimeraVista.add(fraseLabel);
         panelPrimeraVista.add(botonAdministrativo);
@@ -114,7 +116,9 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             instanciaPaciente.setVisible(true);
             this.dispose();
 
+            //Ciclo if en caso de que el usuario quisiera salir del programa 
         } else if (e.getSource() == botonSalir) {
+
 
             int confirmacion = JOptionPane.showConfirmDialog(null,
                     "¿Estás seguro de que quieres salir del programa? ",
@@ -127,6 +131,8 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
             }
 
         }
+
+        //Creacion de istancia para poder entrar a la busqueda de un expendiente medico  
         if(e.getSource()==botonExpendiente){
 
             JOptionPane.showMessageDialog(null, "Digite su cedula para conocer su expediente");

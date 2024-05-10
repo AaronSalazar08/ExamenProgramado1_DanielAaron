@@ -18,17 +18,19 @@ import java.awt.Image;
 
 public class VentanaInformacionPaciente extends JFrame implements ActionListener {
 
+     // Declarando constantes 
     public JPanel panelInfoPaciente = new JPanel();
     public JButton botonRegistrar, botonCancelar;
     public JLabel labelNombrePaciente, labelCedula, labelEdad, labelTranstorno, labelSexo, labelTitulo;
     public static JTextField nombrePacienteTxt;
     public static JTextField cedulaPacienteTxt;
     public static JTextField EdadPacienteTxt;
-    public static JComboBox comboTranstorno;
-    public static JRadioButton botonMasculino, botonFemenino;
+    public static JComboBox comboTranstorno; //JComboBox para poder seleccionar los tipos de transtorno 
+    public static JRadioButton botonMasculino, botonFemenino; //Botones para seleccionar el tipo de sexo
     Font fuenteBoton = new Font("Century Schoolbook", Font.PLAIN, 20);
 
     public VentanaInformacionPaciente() {
+        //Definiendo caracteristicas al JPanel
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setTitle("Registro de Paciente");
         this.setLocationRelativeTo(null);
@@ -42,12 +44,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
     }
 
-    /**
-     * 
-     */
+
     @SuppressWarnings("unchecked")
     public void Elementos() {
-        // Añadir elementos al panel
+        //Inicializando constantes para el JPanel
 
         // JButton
 
@@ -143,7 +143,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
         grupoBotones.add(botonMasculino);
         grupoBotones.add(botonFemenino);
 
-        // añadir elementos al panel
+        // añadir constantes al panel
         panelInfoPaciente.add(EdadPacienteTxt);
         panelInfoPaciente.add(cedulaPacienteTxt);
         panelInfoPaciente.add(nombrePacienteTxt);
@@ -164,8 +164,10 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
     }
 
+    //Metodo para la accion de botones 
     public void actionPerformed(ActionEvent e) {
 
+        //Creacion de instancia para volver al menú principal 
         if (e.getSource() == botonCancelar) {
             JOptionPane.showMessageDialog(null, "Regresando al menú principal");
             MenuPrimeraVista instanciaInicio = new MenuPrimeraVista();
@@ -173,6 +175,8 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
             this.dispose();
 
         }
+        //Metodo para obtener los datos de los pacientes en los JTField, JComboBox y JRadioButton por medio de variables locales
+        
 
         if (e.getSource() == botonRegistrar) {
 
@@ -199,6 +203,8 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
                         String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
 
+                        //Llamado del Arraylist para guardar los datos del paciente 
+
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
                                 transtornoSeleccionado, sexoMasculino, edadPaciente);
 
@@ -209,6 +215,8 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         this.dispose();
 
                     }
+
+                    //Ciclo if para que las entradas de texto no estan vacios
 
                     if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
 
