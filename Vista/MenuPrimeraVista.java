@@ -38,15 +38,15 @@ public class MenuPrimeraVista extends JFrame implements ActionListener {
         // Inicializando constantes 
 
         // JLabel
-        tituloLabel = new JLabel("Centro de Apoyo Solís Salazar");
-        tituloLabel.setBounds(110, 20, 400, 70);
-        Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 26); //
+        tituloLabel = new JLabel("Sistema de Registro de Centro de Apoyo Solís Salazar");
+        tituloLabel.setBounds(40, 20, 500, 70);
+        Font fuente1 = new Font("Century Schoolbook", Font.PLAIN, 20); //
         tituloLabel.setFont(fuente1);
         tituloLabel.setForeground(new Color(23, 32, 42));
 
         labelDescripcion = new JLabel("Centro de apoyo para niños con transtornos mentales en Costa Rica");
-        labelDescripcion.setBounds(35, 70, 590, 70);
-        Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 16); //
+        labelDescripcion.setBounds(70, 70, 590, 70);
+        Font fuente4 = new Font("Century Schoolbook", Font.PLAIN, 14); //
         labelDescripcion.setFont(fuente4);
         labelDescripcion.setForeground(new Color(23, 32, 42));
 
