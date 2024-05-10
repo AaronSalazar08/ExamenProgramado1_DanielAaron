@@ -207,7 +207,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
 
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                                transtornoSeleccionado, sexoMasculino, edadPaciente);
+                        sexoMasculino, edadPaciente, transtornoSeleccionado);
 
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente");
 
@@ -228,7 +228,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                         String sexoFemenino = botonFemenino.isSelected() ? "Masculino" : "Masculino";
 
                         Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                                transtornoSeleccionado, sexoFemenino, edadPaciente);
+                                sexoFemenino, edadPaciente, transtornoSeleccionado);
 
                         JOptionPane.showMessageDialog(null, "Registrado exitosamente");
 

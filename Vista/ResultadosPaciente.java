@@ -141,7 +141,7 @@ public class ResultadosPaciente extends JFrame implements ActionListener {
                             tablaPacientes.setValueAt(paciente.getCedula(), contador, 1);
                             tablaPacientes.setValueAt(paciente.getEdad(), contador, 2);
                             tablaPacientes.setValueAt(paciente.getSexo(), contador, 3);
-                            tablaPacientes.setValueAt(paciente.getTranstorno(), contador, 4);
+                            tablaPacientes.setValueAt(paciente.getTranstrorno(), contador, 4);
                         }
     
                     } else {

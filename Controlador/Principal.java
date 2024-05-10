@@ -5,7 +5,7 @@ package Controlador;
 
 import java.util.ArrayList;
 
-import Modelo.Administrador;
+
 import Modelo.Paciente;
 import Modelo.Persona;
 import Vista.MenuPrimeraVista;

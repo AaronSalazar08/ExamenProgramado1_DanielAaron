@@ -1,15 +1,14 @@
 package Controlador;
 
-import Modelo.Administrador;
+
 import Modelo.Paciente;
 import Vista.ResultadosPaciente;
 
 public class Metodos {
 
-    public static void RegistrarPacientes(String nombre, String cedula, String transtorno, String sexo,
-            int edad) {
+    public static void RegistrarPacientes(String nombre, String cedula, String sexo, int edad, String transtorno ) {
 
-        Principal.listaPacientes.add(new Paciente(nombre, cedula, transtorno, sexo, edad));
+        Principal.listaPacientes.add(new Paciente(nombre, cedula, sexo, edad, transtorno));
 
     }
 
