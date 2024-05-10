@@ -205,46 +205,54 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
                 try {
 
                     edadPaciente = Integer.parseInt(entradaEdadPaciente);
+                    if(edadPaciente > 0){
 
-                    if (botonMasculino.isSelected()) {
+                        if (botonMasculino.isSelected()) {
 
-                        String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
+                            String sexoMasculino = botonMasculino.isSelected() ? "Masculino" : "Masculino";
+    
+                            //Llamado del Arraylist para guardar los datos del paciente 
+    
+                            Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
+                            sexoMasculino, edadPaciente, transtornoSeleccionado);
+    
+                            JOptionPane.showMessageDialog(null, "Registrado exitosamente");
+    
+                            MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                            menuPrimeraVista.setVisible(true);
+                            this.dispose();
+    
+                        }
+    
+                        //Ciclo if para que las entradas de texto no estan vacios
+    
+                        if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
+    
+                            JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
+                            return;
+                        }
+    
+                        else if (botonFemenino.isSelected()) {
+    
+                            String sexoFemenino = botonFemenino.isSelected() ? "Masculino" : "Masculino";
+    
+                            Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
+                                    sexoFemenino, edadPaciente, transtornoSeleccionado);
+    
+                            JOptionPane.showMessageDialog(null, "Registrado exitosamente");
+    
+                            MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
+                            menuPrimeraVista.setVisible(true);
+                            this.dispose();
+    
+                        }
+                        
+                    } else {
 
-                        //Llamado del Arraylist para guardar los datos del paciente 
-
-                        Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                        sexoMasculino, edadPaciente, transtornoSeleccionado);
-
-                        JOptionPane.showMessageDialog(null, "Registrado exitosamente");
-
-                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
-                        menuPrimeraVista.setVisible(true);
-                        this.dispose();
-
+                        JOptionPane.showMessageDialog(null, "Ingrese una edad mayor que 0");
                     }
 
-                    //Ciclo if para que las entradas de texto no estan vacios
-
-                    if (!botonMasculino.isSelected() && !botonFemenino.isSelected()) {
-
-                        JOptionPane.showMessageDialog(null, "Por favor, seleccione el sexo del paciente.");
-                        return;
-                    }
-
-                    else if (botonFemenino.isSelected()) {
-
-                        String sexoFemenino = botonFemenino.isSelected() ? "Masculino" : "Masculino";
-
-                        Controlador.Metodos.RegistrarPacientes(entradaNombrePaciente, entradaCedulaPaciente,
-                                sexoFemenino, edadPaciente, transtornoSeleccionado);
-
-                        JOptionPane.showMessageDialog(null, "Registrado exitosamente");
-
-                        MenuPrimeraVista menuPrimeraVista = new MenuPrimeraVista();
-                        menuPrimeraVista.setVisible(true);
-                        this.dispose();
-
-                    }
+                    
 
                 } catch (NumberFormatException ex) {
 
