@@ -176,7 +176,7 @@ public class VentanaInformacionPaciente extends JFrame implements ActionListener
 
         //Creacion de instancia para volver al menú principal 
         if (e.getSource() == botonCancelar) {
-            JOptionPane.showMessageDialog(null, "Regresando al menú principal");
+            
             MenuPrimeraVista instanciaInicio = new MenuPrimeraVista();
             instanciaInicio.setVisible(true);
             this.dispose();
