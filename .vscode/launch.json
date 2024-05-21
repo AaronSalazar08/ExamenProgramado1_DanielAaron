@@ -9,6 +9,13 @@
             "name": "Principal",
             "request": "launch",
             "mainClass": "Controlador.Principal",
+            "projectName": "ExamenProgramado1_DanielAaron_1fc69738"
+        },
+        {
+            "type": "java",
+            "name": "Principal",
+            "request": "launch",
+            "mainClass": "Controlador.Principal",
             "projectName": "ExamenProgramado1_DanielAaron_c76b4f67"
         },
         {
